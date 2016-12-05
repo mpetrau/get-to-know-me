@@ -9,6 +9,7 @@ class CreateDeals < ActiveRecord::Migration[5.0]
       t.string :category
       t.string :location
       t.string :discount
+      t.string :provider
 
       t.timestamps
     end
