@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_deals
-  has_many :user_interests
+  has_many :user_characteristics
 end
