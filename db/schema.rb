@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161205184324) do
     t.string   "category"
     t.string   "location"
     t.string   "discount"
+    t.string   "provider"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

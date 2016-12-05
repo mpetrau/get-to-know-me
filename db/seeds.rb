@@ -1,3 +1,10 @@
+Characteristic.destroy_all
+Deal.destroy_all
+Tag.destroy_all
+DealTag.destroy_all
+UserCharacteristic.destroy_all
+UserDeal.destroy_all
+
 char1 = Characteristic.new(name: "fashion_guru")
 char2 = Characteristic.new(name: "outdoors_enthusiast")
 char3 = Characteristic.new(name: "family-oriented")
@@ -14,22 +21,21 @@ user1 = User.new(email: "user1@google.com", password: "password", first_name: "A
 user2 = User.new(email: "user2@yahoo.com", password: "password", first_name: "Mathilda", last_name: "User2", location: "Barcelona")
 user3 = User.new(email: "user3@hotmail.com", password: "password", first_name: "Mykolas", last_name: "User3", location: "Barcelona")
 
-Deal_tag.new(deal_id: deal1, tag_id: tag1)
-Deal_tag.new(deal_id: deal1, tag_id: tag2)
-Deal_tag.new(deal_id: deal2, tag_id: tag2)
-Deal_tag.new(deal_id: deal3, tag_id: tag2)
-Deal_tag.new(deal_id: deal3, tag_id: tag3)
+DealTag.new(deal_id: deal1, tag_id: tag1)
+DealTag.new(deal_id: deal1, tag_id: tag2)
+DealTag.new(deal_id: deal2, tag_id: tag2)
+DealTag.new(deal_id: deal3, tag_id: tag2)
+DealTag.new(deal_id: deal3, tag_id: tag3)
 
-User_characteristic.new(user_id: user1, characteristic_id: char1)
-User_characteristic.new(user_id: user1, characteristic_id: char2)
-User_characteristic.new(user_id: user2, characteristic_id: char2)
-User_characteristic.new(user_id: user3, characteristic_id: char2)
-User_characteristic.new(user_id: user3, characteristic_id: char3)
+UserCharacteristic.new(user_id: user1, characteristic_id: char1)
+UserCharacteristic.new(user_id: user1, characteristic_id: char2)
+UserCharacteristic.new(user_id: user2, characteristic_id: char2)
+UserCharacteristic.new(user_id: user3, characteristic_id: char2)
+UserCharacteristic.new(user_id: user3, characteristic_id: char3)
 
-User_deal.new(deal_id: deal1, user_id: user1, score: 50, saved?: 0, disliked?: 1, bought?: 0)
-User_deal.new(deal_id: deal2, user_id: user1, score: 75, saved?: 1, disliked?: 0, bought?: 1)
-User_deal.new(deal_id: deal2, user_id: user2, score: 45, saved?: 1, disliked?: 0, bought?: 0)
-User_deal.new(deal_id: deal3, user_id: user2, score: 75, saved?: 0, disliked?: 0, bought?: 0)
-User_deal.new(deal_id: deal1, user_id: user3, score: 50, saved?: 0, disliked?: 0, bought?: 0)
-User_deal.new(deal_id: deal3, user_id: user3, score: 95, saved?: 0, disliked?: 0, bought?: 1)
-
+UserDeal.new(deal_id: deal1, user_id: user1, score: 50, saved?: 0, disliked?: 1, bought?: 0)
+UserDeal.new(deal_id: deal2, user_id: user1, score: 75, saved?: 1, disliked?: 0, bought?: 1)
+UserDeal.new(deal_id: deal2, user_id: user2, score: 45, saved?: 1, disliked?: 0, bought?: 0)
+UserDeal.new(deal_id: deal3, user_id: user2, score: 75, saved?: 0, disliked?: 0, bought?: 0)
+UserDeal.new(deal_id: deal1, user_id: user3, score: 50, saved?: 0, disliked?: 0, bought?: 0)
+UserDeal.new(deal_id: deal3, user_id: user3, score: 95, saved?: 0, disliked?: 0, bought?: 1)
