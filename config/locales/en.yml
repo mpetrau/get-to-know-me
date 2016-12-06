@@ -2,9 +2,9 @@ en:
   home:
     heading: "Scout"
     tagline: "Sniffing out the good stuff"
-    value_1: "Finding deals completely personalised to you"
-    value_2: "You get to choose exactly what information you want to share"
-    value_3: "We focus on giving you quality over quantity"
+    bullet_1: "Finding deals completely personalised to you"
+    bullet_2: "You get to choose exactly what information you want to share"
+    bullet_3: "We focus on giving you quality over quantity"
     alternative: "Or try out Scout without signing in..."
 
   navbar:
