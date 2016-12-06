@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206114051) do
+ActiveRecord::Schema.define(version: 20161206145751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20161206114051) do
     t.integer  "deal_id"
     t.integer  "user_id"
     t.integer  "score"
-    t.boolean  "saved?"
+    t.boolean  "liked?"
     t.boolean  "disliked?"
     t.boolean  "bought?"
     t.datetime "created_at", null: false

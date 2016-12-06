@@ -20,9 +20,9 @@ tag2 = Tag.create(name: "high-end")
 tag3 = Tag.create(name: "rare discount")
 
 # create a list of users
-user1 = User.create(email: "user1@gmail.com", password: "password", first_name: "Adam", last_name: "User1", location: "Barcelona")
-user2 = User.create(email: "user2@yahoo.com", password: "password", first_name: "Mathilda", last_name: "User2", location: "Barcelona")
-user3 = User.create(email: "user3@hotmail.com", password: "password", first_name: "Mykolas", last_name: "User3", location: "Barcelona")
+user1 = User.create!(email: "user1@gmail.com", password: "password", first_name: "Adam", last_name: "User1", location: "Barcelona")
+user2 = User.create!(email: "user2@yahoo.com", password: "password", first_name: "Mathilda", last_name: "User2", location: "Barcelona")
+user3 = User.create!(email: "user3@hotmail.com", password: "password", first_name: "Mykolas", last_name: "User3", location: "Barcelona")
 
 # connect deals and tags
 DealTag.create(deal_id: deal1.id, tag_id: tag1.id)
@@ -39,9 +39,9 @@ UserTrait.create(user_id: user3.id, trait_id: char2.id)
 UserTrait.create(user_id: user3.id, trait_id: char3.id)
 
 #connect deals with users
-Offer.create(deal_id: deal1.id, user_id: user1.id, score: 50, saved?: 0, disliked?: 1, bought?: 0)
-Offer.create(deal_id: deal2.id, user_id: user1.id, score: 75, saved?: 1, disliked?: 0, bought?: 1)
-Offer.create(deal_id: deal2.id, user_id: user2.id, score: 45, saved?: 1, disliked?: 0, bought?: 0)
-Offer.create(deal_id: deal3.id, user_id: user2.id, score: 75, saved?: 0, disliked?: 0, bought?: 0)
-Offer.create(deal_id: deal1.id, user_id: user3.id, score: 50, saved?: 0, disliked?: 0, bought?: 0)
-Offer.create(deal_id: deal3.id, user_id: user3.id, score: 95, saved?: 0, disliked?: 0, bought?: 1)
+Offer.create!(deal_id: deal1.id, user_id: user1.id, score: 50, liked?: 0, disliked?: 1, bought?: 0)
+Offer.create!(deal_id: deal2.id, user_id: user1.id, score: 75, liked?: 1, disliked?: 0, bought?: 1)
+Offer.create!(deal_id: deal2.id, user_id: user2.id, score: 45, liked?: 1, disliked?: 0, bought?: 0)
+Offer.create!(deal_id: deal3.id, user_id: user2.id, score: 75, liked?: 0, disliked?: 0, bought?: 0)
+Offer.create!(deal_id: deal1.id, user_id: user3.id, score: 50, liked?: 0, disliked?: 0, bought?: 0)
+Offer.create!(deal_id: deal3.id, user_id: user3.id, score: 95, liked?: 0, disliked?: 0, bought?: 1)
