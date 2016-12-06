@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class= "container">
+  <div class= "row">
+    <div class= "col-sm-4">
+      <h1><%= t('home.heading') %></h1>
+      <p><%= t('home.tagline') %></p>
+      <ul>
+        <li><%= t('home.bullet_1') %></li>
+        <li><%= t('home.bullet_2') %></li>
+        <li><%= t('home.bullet_3') %></li>
+      </ul>
+    </div>
+    <div class= "col-sm-4">
+      <%= render template: 'devise/registrations/new' %>
+    </div>
+    <div class= "col-sm-4">
+      <h3><%= t('home.alternative') %></h3>
+    </div>
+  </div>
+</div>
