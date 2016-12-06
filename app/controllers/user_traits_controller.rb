@@ -6,9 +6,6 @@ class UserTraitsController < ApplicationController
   end
 
   def create
-    # p user_traits_params[:traits]
-    # puts "-------------------------"
-    # p var = user_traits_params[:traits].drop(1)
 
     user = current_user
     new_traits = user_traits_params[:traits].drop(1)
@@ -19,7 +16,7 @@ class UserTraitsController < ApplicationController
         render :index
       end
     end
-    redirect_to "/"
+    redirect_to offers_path
     flash[:notice] = "We learned about you!"
   end
 
