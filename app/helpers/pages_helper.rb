@@ -3,6 +3,10 @@ module PagesHelper
     :user
   end
 
+  def resource_class
+    User
+  end
+
   def resource
     @resource ||= User.new
   end

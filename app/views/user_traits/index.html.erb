@@ -1,2 +1,11 @@
-<h1>UserTraits#index</h1>
-<p>Find me in app/views/user_traits/index.html.erb</p>
+<h1>Please select the traits that are applicable to you:</h1>
+<% @traits.each do |trait| %>
+  <%= trait.name %>
+<%end %>
+
+<h2>Form method:</h2>
+<%= simple_form_for @user_trait do |f| %>
+  <%= collection_check_boxes(:user, :traits, @traits, :id, :name) %>
+  <%= f.submit %>
+<% end %>
+
