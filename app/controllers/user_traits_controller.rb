@@ -20,7 +20,7 @@ class UserTraitsController < ApplicationController
       end
     end
     redirect_to "/"
-      flash[:notice] = "We learned about you!"
+    flash[:notice] = "We learned about you!"
   end
 
 
