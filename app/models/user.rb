@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :user_deals, dependent: :destroy
-  has_many :deals, through: :user_deals
-  has_many :user_characteristics, dependent: :destroy
-  has_many :characteristics, through: :user_characteristics
+  has_many :offers, dependent: :destroy
+  has_many :deals, through: :offers
+  has_many :user_traits, dependent: :destroy
+  has_many :traits, through: :user_traits
 
   validates :location, :email, presence: :true
 end

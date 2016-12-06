@@ -1,13 +1,13 @@
 # destroy all records in main tables and associated tables
-Characteristic.destroy_all
+Trait.destroy_all
 Deal.destroy_all
 Tag.destroy_all
 
-# create a list of characteristics
-# renamed from 'interests' intp 'characteristics'
-char1 = Characteristic.create(name: "fashion_guru")
-char2 = Characteristic.create(name: "outdoors_enthusiast")
-char3 = Characteristic.create(name: "family-oriented")
+# create a list of traits
+# renamed from 'interests' intp 'traits'
+char1 = Trait.create(name: "fashion_guru")
+char2 = Trait.create(name: "outdoors_enthusiast")
+char3 = Trait.create(name: "family-oriented")
 
 # create a list of deals
 deal1 = Deal.create(name: "Nike shoes", description: "this is great deal", original_price: 140, new_price: 70, url: "www.nike.com", category: "sports", provider: "Nike inc", location: "Barcelona", discount: "50%")
@@ -32,16 +32,16 @@ DealTag.create(deal_id: deal3.id, tag_id: tag2.id)
 DealTag.create(deal_id: deal3.id, tag_id: tag3.id)
 
 #connect users and characterstics
-UserCharacteristic.create(user_id: user1.id, characteristic_id: char1.id)
-UserCharacteristic.create(user_id: user1.id, characteristic_id: char2.id)
-UserCharacteristic.create(user_id: user2.id, characteristic_id: char2.id)
-UserCharacteristic.create(user_id: user3.id, characteristic_id: char2.id)
-UserCharacteristic.create(user_id: user3.id, characteristic_id: char3.id)
+UserTrait.create(user_id: user1.id, trait_id: char1.id)
+UserTrait.create(user_id: user1.id, trait_id: char2.id)
+UserTrait.create(user_id: user2.id, trait_id: char2.id)
+UserTrait.create(user_id: user3.id, trait_id: char2.id)
+UserTrait.create(user_id: user3.id, trait_id: char3.id)
 
 #connect deals with users
-UserDeal.create(deal_id: deal1.id, user_id: user1.id, score: 50, saved?: 0, disliked?: 1, bought?: 0)
-UserDeal.create(deal_id: deal2.id, user_id: user1.id, score: 75, saved?: 1, disliked?: 0, bought?: 1)
-UserDeal.create(deal_id: deal2.id, user_id: user2.id, score: 45, saved?: 1, disliked?: 0, bought?: 0)
-UserDeal.create(deal_id: deal3.id, user_id: user2.id, score: 75, saved?: 0, disliked?: 0, bought?: 0)
-UserDeal.create(deal_id: deal1.id, user_id: user3.id, score: 50, saved?: 0, disliked?: 0, bought?: 0)
-UserDeal.create(deal_id: deal3.id, user_id: user3.id, score: 95, saved?: 0, disliked?: 0, bought?: 1)
+Offer.create(deal_id: deal1.id, user_id: user1.id, score: 50, saved?: 0, disliked?: 1, bought?: 0)
+Offer.create(deal_id: deal2.id, user_id: user1.id, score: 75, saved?: 1, disliked?: 0, bought?: 1)
+Offer.create(deal_id: deal2.id, user_id: user2.id, score: 45, saved?: 1, disliked?: 0, bought?: 0)
+Offer.create(deal_id: deal3.id, user_id: user2.id, score: 75, saved?: 0, disliked?: 0, bought?: 0)
+Offer.create(deal_id: deal1.id, user_id: user3.id, score: 50, saved?: 0, disliked?: 0, bought?: 0)
+Offer.create(deal_id: deal3.id, user_id: user3.id, score: 95, saved?: 0, disliked?: 0, bought?: 1)
