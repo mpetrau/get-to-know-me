@@ -14,4 +14,6 @@ en:
   edit:
     heading: "What did you think about this deal?"
     subheading: "Your feedback will help us further improve our recommendations"
-    
+    liked: "Liked"
+    bought: "Bought"
+    disliked: "Disliked"

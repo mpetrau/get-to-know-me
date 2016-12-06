@@ -7,13 +7,13 @@
       <h2><%= t('edit.heading') %></h2>
       <p><%= t('edit.subheading') %></p>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4 icon icon-green">
         <%= link_to "<i class='fa fa-money' aria-hidden='true'></i><hr>Bought".html_safe, offer_path(:bought? => true ), method: :patch  %>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 icon icon-yellow">
         <%= link_to "<i class='fa fa-thumbs-o-up' aria-hidden='true'></i><hr>Liked".html_safe, offer_path(:liked? => true ), method: :patch  %>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 icon icon-red">
         <%= link_to "<i class='fa fa-frown-o' aria-hidden='true'></i><hr>Disliked".html_safe, offer_path(:disliked? => true ), method: :patch  %>
         </div>
       </div>
