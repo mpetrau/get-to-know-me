@@ -1,11 +1,17 @@
-<h1>Please select the traits that are applicable to you:</h1>
-<% @traits.each do |trait| %>
-  <%= trait.name %>
-<%end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Please select the traits that are applicable to you:</h1>
+      <hr>
+      <%= simple_form_for @user_trait do |f| %>
+        <%= collection_check_boxes(:user, :traits, @traits, :id, :name) %>
+        <br>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<h2>Form method:</h2>
-<%= simple_form_for @user_trait do |f| %>
-  <%= collection_check_boxes(:user, :traits, @traits, :id, :name) %>
-  <%= f.submit %>
-<% end %>
 
+<!-- do |b| b.label(class: "btn btn-primary") end -->
+<!-- error: 'Please select at least 2 traits', input_html: { class: 'btn btn-primary' }  -->
