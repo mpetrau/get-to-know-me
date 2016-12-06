@@ -10,7 +10,8 @@ class User < ApplicationRecord
   has_many :user_characteristics, dependent: :destroy
   has_many :characteristics, through: :user_characteristics
 
-  validates :location, :email, presence: :true
+  validates :email, presence: :true
+  #removed :location, from validation logic until functionality is added.
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
