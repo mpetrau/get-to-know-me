@@ -15,10 +15,6 @@ ActiveRecord::Schema.define(version: 20161205184324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "characteristics", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "deal_tags", force: :cascade do |t|
     t.integer  "deal_id"
     t.integer  "tag_id"
@@ -42,22 +38,7 @@ ActiveRecord::Schema.define(version: 20161205184324) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_characteristics", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "characteristic_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["characteristic_id"], name: "index_user_characteristics_on_characteristic_id", using: :btree
-    t.index ["user_id"], name: "index_user_characteristics_on_user_id", using: :btree
-  end
-
-  create_table "user_deals", force: :cascade do |t|
+  create_table "offers", force: :cascade do |t|
     t.integer  "deal_id"
     t.integer  "user_id"
     t.integer  "score"
@@ -66,8 +47,27 @@ ActiveRecord::Schema.define(version: 20161205184324) do
     t.boolean  "bought?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["deal_id"], name: "index_user_deals_on_deal_id", using: :btree
-    t.index ["user_id"], name: "index_user_deals_on_user_id", using: :btree
+    t.index ["deal_id"], name: "index_offers_on_deal_id", using: :btree
+    t.index ["user_id"], name: "index_offers_on_user_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "traits", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "user_traits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trait_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trait_id"], name: "index_user_traits_on_trait_id", using: :btree
+    t.index ["user_id"], name: "index_user_traits_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 20161205184324) do
 
   add_foreign_key "deal_tags", "deals"
   add_foreign_key "deal_tags", "tags"
-  add_foreign_key "user_characteristics", "characteristics"
-  add_foreign_key "user_characteristics", "users"
-  add_foreign_key "user_deals", "deals"
-  add_foreign_key "user_deals", "users"
+  add_foreign_key "offers", "deals"
+  add_foreign_key "offers", "users"
+  add_foreign_key "user_traits", "traits"
+  add_foreign_key "user_traits", "users"
 end
