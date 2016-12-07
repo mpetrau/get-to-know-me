@@ -1,5 +1,8 @@
-<div class="container">
+<div class="hidden alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Please select at least two!</div>
   <div class="row">
+
+<div class="container">
+
     <div class="col-md-6 col-md-offset-3">
       <h1>Please select the traits that are applicable to you:</h1>
       <hr>
@@ -30,8 +33,7 @@
     {
       var selected = $("#new_user_trait input[type=checkbox]:checked").length;
       if (selected < 2 ) {
-        $.ajax("<% flash[:alert] = "There is a mistake submitting your form" %>");
-        alert("you have to select at least 2");
+        $('.alert-warning').removeClass('hidden');
       } else {
         return true
       }
