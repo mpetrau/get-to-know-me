@@ -2,6 +2,7 @@
 Trait.destroy_all
 Deal.destroy_all
 Tag.destroy_all
+User.destroy_all
 
 # create a list of traits
 # renamed from 'interests' intp 'traits'
@@ -20,7 +21,7 @@ tag5 = Tag.create(name: "rare discount")
 
 # create weights listing
 Weight.create(trait: trait1, tag: tag2, weight: 0.7 )
-Weight.create(trait: trait1, tag: tag2, weight: 0.3 )
+Weight.create(trait: trait1, tag: tag3, weight: 0.3 )
 Weight.create(trait: trait1, tag: tag5, weight: 0.4 )
 Weight.create(trait: trait2, tag: tag1, weight: 0.8 )
 Weight.create(trait: trait2, tag: tag5, weight: 0.2 )
