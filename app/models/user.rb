@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :deals, through: :offers
   has_many :user_traits, dependent: :destroy
   has_many :traits, through: :user_traits
+  has_many :deal_tags, through: :deals
+  has_many :tags, through: :deal_tags
 
   validates :email, presence: :true
   #removed :location, from validation logic until functionality is added.
