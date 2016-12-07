@@ -1,8 +1,2 @@
-
-<% @offers.each do |offer| %>
-  <%= link_to offer.deal.name, offer_path(offer) %>
-  <%= render partial: 'show', locals: { offer: offer }%>
-<% end %>
-
 <%= render 'shared/offers' %>
 

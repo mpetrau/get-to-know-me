@@ -1,12 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
+      <a href=""><i class="fa fa-undo flipfront" aria-hidden="true"></i></a>
       <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
       <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
       <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
-    </div>
-    <div class="col-sm-2 col-sm-offset-10">
-      <i class="fa fa-undo" aria-hidden="true"></i>
     </div>
   </div>
   <div class="row">
