@@ -6,20 +6,20 @@ class DealTag < ApplicationRecord
 
   validates :deal_id, :tag_id, presence: :true
 
-  def generate_offers
-    if Offer.where("deal_id": :deal_id).empty?
-      create_offers
-    else
-      update_offers
-    end
-  end
+  # def generate_offers
+  #   if Offer.where("deal_id": :deal_id).empty?
+  #     create_offers
+  #   else
+  #     update_offers
+  #   end
+  # end
 
-  private
+  # private
 
-  def create_offers
+  # def create_offers
 
-  end
+  # end
 
-  def update_offers
-  end
+  # def update_offers
+  # end
 end
