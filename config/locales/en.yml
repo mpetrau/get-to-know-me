@@ -17,3 +17,11 @@ en:
     liked: "Liked"
     bought: "Bought"
     disliked: "Disliked"
+    
+  cardreverse:
+    product: "product"
+    price: "price"
+    provider: "provider"
+    tags: "offer tags"
+    score: "offer score"
+    

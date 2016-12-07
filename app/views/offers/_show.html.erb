@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
+      <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
+      <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
+    </div>
+    <div class="col-sm-2 col-sm-offset-10">
+      <i class="fa fa-undo" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="row">
+    <table>
+      <tr>
+        <th><%= t('cardreverse.product') %></th>
+        <td><%= offer.deal.name %></td>
+      </tr>
+      <tr>
+        <th><%= t('cardreverse.price') %></th>
+        <td><%= offer.deal.new_price %></td>
+      </tr>
+      <tr>
+        <th><%= t('cardreverse.provider') %></th>
+        <td><%= offer.deal.provider %></td>
+      </tr>
+      <tr>
+        <th><%= t('cardreverse.tags') %></th>
+        <td><% offer.deal.tags.each do |t| %>
+            <%= "#" + t.name + " " %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= t('cardreverse.score') %></th>
+        <td><%= offer.score %></td>
+      </tr>
+    </table>
+  </div>
+</div>
