@@ -18,5 +18,13 @@ en:
     bought: "Bought"
     disliked: "Disliked"
 
+  cardreverse:
+    product: "product"
+    price: "price"
+    provider: "provider"
+    tags: "offer tags"
+    score: "offer score"
+
   offer:
     heading: "Here is a list of your deals"
+
