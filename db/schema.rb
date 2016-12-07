@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207155957) do
+ActiveRecord::Schema.define(version: 20161207215012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20161207155957) do
   create_table "offers", force: :cascade do |t|
     t.integer  "deal_id"
     t.integer  "user_id"
-    t.integer  "score"
     t.boolean  "liked?"
     t.boolean  "disliked?"
     t.boolean  "bought?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "score"
     t.index ["deal_id"], name: "index_offers_on_deal_id", using: :btree
     t.index ["user_id"], name: "index_offers_on_user_id", using: :btree
   end
