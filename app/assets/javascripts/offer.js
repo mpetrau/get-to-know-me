@@ -1,7 +1,7 @@
-$( "offer" ).hover(
+$( ".offer" ).hover(
   function() {
-    $( this ).removeClass( "hidden" );
+    $(this).find(".offer-actions" ).removeClass( "hidden" );
   }, function() {
-    $( this ).addClass( "hidden" );
+    $(this).find(".offer-actions" ).addClass( "hidden" );
   }
 );
