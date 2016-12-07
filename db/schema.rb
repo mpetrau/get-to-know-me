@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20161207215012) do
     t.boolean  "liked?"
     t.boolean  "disliked?"
     t.boolean  "bought?"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float    "score"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.float    "score",      default: 0.0
     t.index ["deal_id"], name: "index_offers_on_deal_id", using: :btree
     t.index ["user_id"], name: "index_offers_on_user_id", using: :btree
   end
