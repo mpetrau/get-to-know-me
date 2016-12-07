@@ -1,5 +1,5 @@
 class UserTraitsController < ApplicationController
-
+  skip_before_action :authenticate_user!
   def index
     @traits = Trait.all
     @user_trait = UserTrait.new
