@@ -1,5 +1,5 @@
 class DealTag < ApplicationRecord
-  after_save :generate_offers
+  after_commit :generate_offers
 
   belongs_to :deal
   belongs_to :tag
