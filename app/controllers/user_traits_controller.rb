@@ -15,13 +15,8 @@ class UserTraitsController < ApplicationController
         render :index
       end
       end
-    # if new_traits.length > 2
-    #   redirect_to offers_path
-    #   flash[:notice] = "We learned about you!"
-    # else
-    #   render 'user_traits/index'
-    #   flash[:alert] = "Please select at least two attributes"
-    # end
+    redirect_to offers_path
+    flash[:notice] = "Thanks"
   end
 
   # def edit

@@ -6,7 +6,7 @@
       <%= simple_form_for @user_trait do |f| %>
         <%= collection_check_boxes(:user, :traits, @traits, :id, :name) %>
         <br>
-        <%= f.submit %>
+        <%= f.submit "Next", class: "btn btn-success", id: "send-traits" %>
       <% end %>
     </div>
   </div>
