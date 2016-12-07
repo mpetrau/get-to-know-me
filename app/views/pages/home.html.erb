@@ -10,10 +10,16 @@
       </ul>
     </div>
     <div class= "col-sm-4">
-    <%= render template: 'devise/registrations/new' %>
+      <% if current_user %>
+        <%= '' %>
+      <% else %>
+        <%= render template: 'devise/registrations/home' %>
+      <% end %>
     </div>
     <div class= "col-sm-4">
       <h3><%= link_to t('home.alternative'), user_traits_path %></h3>
     </div>
   </div>
 </div>
+
+
