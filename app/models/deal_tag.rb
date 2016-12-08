@@ -7,7 +7,8 @@ class DealTag < ApplicationRecord
   validates :deal_id, :tag_id, presence: :true
 
   def generate_offers
-    if Offer.where("deal_id": :deal_id).empty?
+    @deal = DealTag.last.deal
+    if Offer.where(deal: @deal).empty?
       create_offers
     else
       update_offers
@@ -17,9 +18,12 @@ class DealTag < ApplicationRecord
   private
 
   def create_offers
-
+    User.all.each do |user|
+      Offer.create(deal: @deal, user: user, score: Offer::score(user, @deal))
+    end
   end
 
   def update_offers
+    Offer.where(deal: @deal).each { |offer| offer.update(score: Offer::score(offer.user, @deal)) }
   end
 end
