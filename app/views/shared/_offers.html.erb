@@ -5,6 +5,7 @@
      <div>
       <div class ="card">
        <div class="offer">
+        <%= link_to(offer.deal.url, target: "_blank") do %>
          <div class="card-content">
           <h2><%= offer.deal.name %></h2>
           <p><%= offer.deal.discount %></p>
@@ -17,6 +18,7 @@
          <%= image_tag offer.deal.photo, class: "img-responsive img-card" %>
        </div>
      </div>
+     <% end %>
      <div class="reverse">
       <%= render partial: 'show', locals: { offer: offer }%>
     </div>
