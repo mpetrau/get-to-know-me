@@ -4,24 +4,24 @@
     <% @offers.each do |offer| %>
     <div class="col-xs-12 col-sm-4">
      <div>
-        <div class ="card">
-         <div class="offer">
-          <h2><%= offer.deal.name %></h2>
-          <p><%= offer.deal.discount %></p>
-          <div class="offer-actions hidden">
-           <i class="fa fa-heart" aria-hidden="true"></i>
-           <i class="fa fa-trash" aria-hidden="true"></i>
-           <i class="fa fa-times" aria-hidden="true"></i>
-           <a href=""><i class="fa fa-expand flip" aria-hidden="true" ></i></a>
-          </div>
-         </div>
-         <div class="reverse">
-          <%= render partial: 'show', locals: { offer: offer }%>
-         </div>
-       </div>
-     </div>
- </div>
- <% end %>
+      <div class ="card">
+       <div class="offer">
+        <h2><%= offer.deal.name %></h2>
+        <p><%= offer.deal.discount %></p>
+        <div class="offer-actions hidden">
+          <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
+          <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
+          <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
+          <a href=""><i class="fa fa-expand flip" aria-hidden="true" ></i></a>
+        </div>
+      </div>
+      <div class="reverse">
+        <%= render partial: 'show', locals: { offer: offer }%>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 </div>
 </div>
 
