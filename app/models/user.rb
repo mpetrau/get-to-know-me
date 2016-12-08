@@ -35,11 +35,4 @@ class User < ApplicationRecord
     return user
   end
 
-  def self.generate_user_offers
-    if current_user.offers.length > 0
-      current_user.offers.each { |offer| offer.update(score: Offer::score(current_user, offer.deal))}
-    else
-      Deal.all.each { |deal| Offer.create(user: current_user, deal: deal, score: Offer::score(current_user, deal)) }
-    end
-  end
 end
