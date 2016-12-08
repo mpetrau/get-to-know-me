@@ -4,7 +4,6 @@ class OffersController < ApplicationController
 
   def index
     @offers= Offer.where(user: current_user).sort{ |a,b| b.score <=> a.score }.first(6)
-    byebug
   end
 
   def edit
