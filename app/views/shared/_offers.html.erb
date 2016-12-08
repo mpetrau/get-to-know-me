@@ -6,24 +6,32 @@
      <div>
       <div class ="card">
        <div class="offer">
-        <%= link_to(offer.deal.url, target: "_blank") do %>
-         <div class="card-content">
-          <h2><%= offer.deal.name %></h2>
-          <p><%= offer.deal.discount %></p>
-          <div class="offer-actions hidden">
-           <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
-           <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
-           <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
-           <a href=""><i class="fa fa-expand flip" aria-hidden="true" ></i></a>
-         </div>
-         <%= image_tag offer.deal.photo, class: "img-responsive img-card" %>
+         <div class="card-link">
+          <%= link_to(offer.deal.url, target: "_blank") do %>
+
+        </div>
+        <div class="card-content">
+         <div class="edit hidden">
+          <h1>I'm here</h1>
+              <%= render partial: 'edit', locals: { offer: offer }%>
+        </div>
+        <h2><%= offer.deal.name %></h2>
+        <p><%= offer.deal.discount %></p>
+        <div class="offer-actions hidden">
+         <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
+         <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
+         <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
+         <a href=""><i class="fa fa-expand flip" aria-hidden="true" ></i></a>
        </div>
+       <%= image_tag offer.deal.photo, class: "img-responsive img-card" %>
+
      </div>
-     <% end %>
-     <div class="reverse">
-      <%= render partial: 'show', locals: { offer: offer }%>
-    </div>
+   </div>
+   <% end %>
+   <div class="reverse">
+    <%= render partial: 'show', locals: { offer: offer }%>
   </div>
+</div>
 </div>
 </div>
 <% end %>
