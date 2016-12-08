@@ -112,6 +112,7 @@ DealTag.create(deal: deal9, tag: tag2)
 DealTag.create(deal: deal9, tag: tag11)
 DealTag.create(deal: deal9, tag: tag13)
 DealTag.create(deal: deal10, tag: tag5)
+DealTag.create(deal: deal10, tag: tag6)
 DealTag.create(deal: deal10, tag: tag7)
 
 
