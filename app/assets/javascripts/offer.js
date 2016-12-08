@@ -23,3 +23,15 @@ $(document).ready(function(){
         });
     });
 });
+
+$(document).ready(function(){ 
+  $(".remove").on("click",function(e){
+    $.ajax({
+      url: "",
+      context: document.body,
+      success: function(s,x){
+        $(this).html(s);
+      }
+    });
+  });
+});

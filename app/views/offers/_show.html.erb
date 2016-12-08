@@ -4,7 +4,7 @@
       <a href=""><i class="fa fa-undo flipfront" aria-hidden="true"></i></a>
       <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
       <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
-      <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
+      <%= link_to '<i class="fa fa-times-circle remove" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
     </div>
   </div>
   <div class="row">
