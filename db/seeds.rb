@@ -63,3 +63,36 @@ DealTag.create(deal: deal2, tag: tag4)
 DealTag.create(deal: deal2, tag: tag5)
 DealTag.create(deal: deal3, tag: tag1)
 DealTag.create(deal: deal3, tag: tag3)
+
+deal11 = Deal.create(name: "Ski & Sporting Sunglasses", description: "New Season Collection - New With Labels", original_price: 15, new_price: 9, url: "https://www.amazon.co.uk/X-Loop-Extreme-Sporting-Sunglasses-Adults/dp/B00C43QLNG/ref=gbps_tit_s-3_4168_863da620?smid=AR00CFUBZLBEZ&pf_rd_p=c4427c61-bcfc-4769-adc2-397824774168&pf_rd_s=slot-3&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A3P5ROKL5A1OLE&pf_rd_r=SE17X7JH2BYCBQRGJ8GN", category: "sports", provider: "X-Loop", location: "London", discount: "40%")
+DealTag.create(deal: deal1, tag: tag1)
+DealTag.create(deal: deal1, tag: tag5)
+DealTag.create(deal: deal1, tag: tag8)
+DealTag.create(deal: deal1, tag: tag12)
+
+deal12 = Deal.create(name: "North Face Men's Vault Backpack", description: "FlexVent injection-molded shoulder straps", original_price: 55, new_price: 35, url: " https://www.amazon.co.uk/North-Face-Mens-Vault-Backpack/dp/B00OSE8E0C/ref=gbps_img_s-3_4168_80735516?smid=A3P5ROKL5A1OLE&pf_rd_p=c4427c61-bcfc-4769-adc2-397824774168&pf_rd_s=slot-3&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A3P5ROKL5A1OLE&pf_rd_r=YVGEGYJVJWKFSVRCYVZD", category: "sports", provider: "The North Face", location: "London", discount: "36%")
+DealTag.create(deal: deal2, tag: tag1)
+DealTag.create(deal: deal2, tag: tag5)
+DealTag.create(deal: deal2, tag: tag6)
+DealTag.create(deal: deal2, tag: tag9)
+DealTag.create(deal: deal2, tag: tag9)
+
+deal13 = Deal.create(name: "Resistance Band Set", description: "This stackable set of resistance bands can produce up to 75 LBS", original_price: 110, new_price: 19, url: "https://www.amazon.co.uk/Black-Mountain-Resistance-Exercise-Multi-Colour/dp/7245456313/ref=gbps_img_s-3_4168_959f8435?smid=A3P5ROKL5A1OLE&pf_rd_p=c4427c61-bcfc-4769-adc2-397824774168&pf_rd_s=slot-3&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A3P5ROKL5A1OLE&pf_rd_r=SCR5B4E8ZSDPRGV65P3G", category: "sports", provider: "Black Mountain", location: "London", discount: "78%")
+DealTag.create(deal: deal3, tag: tag5)
+DealTag.create(deal: deal3, tag: tag7)
+
+deal14 = Deal.create(name: "Ski Suncream and Lipbalm Pack", description: "20 tube of suncream with integrated SPF 15 lipbalm in dome", original_price: 10, new_price: 7, url: "https://www.amazon.co.uk/Suncream-Lipbalm-Pack-lanyard-SPF30/dp/B001URWNDY/ref=sr_1_1?ie=UTF8&qid=1481195523&sr=8-1&keywords=skiing", category: "sports", provider: "Manbi", location: "London", discount: "25%")
+deal3 = Deal.create(name: "TomTom GPS Watch", description: "latest generation GPS watch", original_price: 200, new_price: 200, url: "www.tomtom.com", category: "electronics", provider: "TomTom B.V", location: "Barcelona", discount: "2 for 1")
+DealTag.create(deal: deal4, tag: tag8)
+DealTag.create(deal: deal4, tag: tag1)
+DealTag.create(deal: deal4, tag: tag6)
+DealTag.create(deal: deal4, tag: tag9)
+DealTag.create(deal: deal4, tag: tag12)
+
+deal3 = Deal.create(name: "Functional Thermal Underwear", description: "Designed using double-seamless technology with top quality thermal properties", original_price: 79, new_price: 23, url: "https://www.amazon.co.uk/THERMOTECH-Functional-Thermal-Underwear-Breathable/dp/B01769P6NS/ref=sr_1_7?ie=UTF8&qid=1481197179&sr=8-7&keywords=skiing", category: "sports", provider: "Norde", location: "London", discount: "Save 72%")
+DealTag.create(deal: deal5, tag: tag1)
+DealTag.create(deal: deal5, tag: tag5)
+DealTag.create(deal: deal5, tag: tag8)
+DealTag.create(deal: deal5, tag: tag11)
+
+
