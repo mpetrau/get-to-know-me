@@ -13,7 +13,7 @@ class UserTraitsController < ApplicationController
         flash[:alert] = "There is a mistake submitting your form"
         render :index
       end
-      end
+    end
     redirect_to offers_path
     flash[:notice] = "Thanks for sharing. We used it to target offers for you."
   end
