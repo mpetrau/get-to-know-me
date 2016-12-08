@@ -17,13 +17,13 @@ class OffersController < ApplicationController
   def update
     @offer= Offer.find(params[:id])
     if params[:bought?]
-      @offer.update(:bought? => true)
+      @offer.toggle!(:bought?)
     elsif params[:liked?]
-      @offer.update(:liked? => true)
+      @offer.toggle!(:liked?)
     elsif params[:disliked?]
-      @offer.update(:disliked? => true)
+      @offer.toggle(:disliked?)
     end
-    redirect_to offers_path
+    redirect_to (:back)
   end
 
   private
