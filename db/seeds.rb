@@ -7,6 +7,7 @@ User.destroy_all
 # ORDER BELOW MATTERS!
 
 # create a list of deals
+
 deal1 = Deal.create(name: "3 day Bulgaria Ski, Spa, & Flights", description: "4* half board Ski trip in Borovets, including flight from Gatwick", original_price: 263, new_price: 149, discount: "-43%", provider: "Tour Center.co.uk", url:"https://www.livingsocial.co.uk/deal/escapes/1685158/129pp-tour-center-2nt-4-half-board-bulgaria-ski", category: "sports", location: "London")
 deal2 = Deal.create(name: "Nike premium Flyknit running shoes", description: "Extraordinary comfortable shoes wtih ankle support and dynamic fit ", original_price: 165, new_price: 115, discount: "-30%", provider: "Nike.co.uk", url:"http://store.nike.com/gb/en_gb/pd/zoom-mercurial-flyknit-shoe/pid-11168375/pgid-11826844", category: "sports", location: "London")
 deal3 = Deal.create(name: "Nordica La Nina Skis (women's)", description: "Effortless float, super-smooth edge hold and versatility to go from hardpack to bottomless to bumps, all on the same run, the La Nina skis ensure every run is uniquely perfect", original_price: 849, new_price: 256, discount: "-70%", provider: "Rei.com", url:"https://www.rei.com/rei-garage/product/887649/nordica-la-nina-skis-womens", category: "sports", location: "London")
