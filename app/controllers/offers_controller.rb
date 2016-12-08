@@ -6,6 +6,10 @@ class OffersController < ApplicationController
     @offers= Offer.where(user: current_user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
   end
 
+  def favorites
+    @offers= Offer.where(user: current_user, disliked?: false, liked?: true).sort{ |a,b| b.score <=> a.score }
+  end
+
   def edit
     @offer= Offer.find(params[:id])
   end
