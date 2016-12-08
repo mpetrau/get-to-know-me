@@ -14,21 +14,6 @@ $(document).ready(function(){
       $(this).closest(".card").find(".offer").fadeIn();
     });
   });
-  $( ".offer" ).hover(
-    function() {
-      $(this).find(".offer-actions" ).removeClass( "hidden" );
-    }, function() {
-      $(this).find(".offer-actions" ).addClass( "hidden" );
-    }
-    );
-  $( ".card-content" ).on('click', function() {
-    console.log(this)
-      $(this).find(".edit" ).removeClass( "hidden" );
-    }
-    );
-});
-
-$(document).ready(function(){
   $(".remove").on("click",function(e){
     $.ajax({
       url: "",
@@ -38,4 +23,17 @@ $(document).ready(function(){
       }
     });
   });
+  $( ".offer" ).hover(
+    function() {
+      $(this).find(".offer-actions" ).removeClass( "hidden" );
+    }, function() {
+      $(this).find(".offer-actions" ).addClass( "hidden" );
+    }
+    );
+  $( ".card-content" ).on('click', function() {
+    console.log(this)
+    $(this).find(".edit" ).toggleClass( "hidden" );
+  }
+  );
 });
+
