@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :offers, only: [:index, :edit, :update, :show]
   resources :favorites, only: [:index], to: 'offers#favorites'
   resources :user_traits, only: [:index, :create]
+  resources :profiles, only: [:show]  do
+    delete "delete/:id_trait" , to: "user_traits#destroy", as: "del_trait"
+  end
 
 end

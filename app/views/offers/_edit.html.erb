@@ -1,19 +1,22 @@
 
-<%= offer.deal.name %>
-<p><%= t('edit.heading') %></p>
-<p><%= t('edit.subheading') %></p>
-<div>
-<ul><li>
-  <%= link_to "<i class='fa fa-money' aria-hidden='true'></i><hr>Bought".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %>
-</li>
-<li>
-  <%= link_to "<i class='fa fa-thumbs-o-up' aria-hidden='true'></i><hr>Liked".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %>
-</li>
+  <!--<div class="row">-->
+  <!--  <div class="col-sm-4">-->
+      <%= offer.deal.name %>
+    <!--</div>-->
+    <!--<div class="col-sm-8 col-sm-offset-4">-->
+      <p><%= t('edit.heading') %></p>
+      <p><%= t('edit.subheading') %></p>
+      <!--<div class="row">-->
+        <!--<div class="col-sm-4 icon icon-green">-->
+        <%= link_to "<i class='fa fa-money' aria-hidden='true'></i><hr>Bought".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %>
+        <!--</div>-->
+        <!--<div class="col-sm-4 icon icon-yellow">-->
+        <%= link_to "<i class='fa fa-thumbs-o-up' aria-hidden='true'></i><hr>Liked".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %>
+        <!--</div>-->
+        <!--<div class="col-sm-4 icon icon-red">-->
+        <%= link_to "<i class='fa fa-frown-o' aria-hidden='true'></i><hr>Disliked".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %>
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
 
-<li>
-  <%= link_to "<i class='fa fa-frown-o' aria-hidden='true'></i><hr>Disliked".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %>
-</li>
-
-</ul>
-
-</div>

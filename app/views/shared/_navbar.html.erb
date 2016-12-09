@@ -17,10 +17,6 @@
     <% if user_signed_in? %>
 
       <!-- Profile picture and dropdown -->
-
-
-
-
         <div class="fixed-action-btn horizontal">
 
 <%= image_tag current_user.facebook_picture_url.nil? ? "http://images.clipartbro.com/35/green-happy-face-35730.jpeg" : current_user.facebook_picture_url , class: "btn-floating btn-large" %>
@@ -34,7 +30,7 @@
               <% end %>
             </li>
             <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
-              <%= link_to "#", class: "btn-floating"  do %>
+              <%= link_to profile_path(:id), class: "btn-floating"  do %>
                 <i class="fa fa-user"></i>
               <% end %>
             </li>
