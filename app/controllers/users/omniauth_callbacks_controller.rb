@@ -1,7 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     user = User.find_for_facebook_oauth(request.env['omniauth.auth'])
-    url = "https://graph.facebook.com/me/tagged_places?access_token=#{user.token}&limit=5&pretty=0"
     if user.persisted?
       sign_in_and_redirect user, event: :authentication
       set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
