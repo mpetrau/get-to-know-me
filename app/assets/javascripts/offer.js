@@ -30,10 +30,16 @@ $(document).ready(function(){
       $(this).find(".offer-actions" ).addClass( "hidden" );
     }
     );
-  $( ".card-content" ).on('click', function() {
-    console.log(this)
-    $(this).find(".edit" ).toggleClass( "hidden" );
+  $( ".offer" ).on('click', function() {
+    if ($(this).find('.edit.hidden').length){
+      $(this).find(".edit" ).removeClass( "hidden" );
+       var url = $(this).find('.card-link').find("a").attr("href");
+        window.open(url, '_blank');
+         return false;
+    }
+    else $(this).find(".edit").addClass( "hidden" );
   }
   );
 });
-
+// If .edit is hiden then open link in new tab and remove hidden.
+// if .edit is not hidden then add class hiden
