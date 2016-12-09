@@ -33,11 +33,11 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color:  #c6ff00 !default;
+$primary-color:  #c6ff00 !default; //lime color
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: #b0bec5 !default;
+$secondary-color: #b0bec5 !default; //blue grey
 $success-color: #4CAF50 !default;
 $error-color: #ef5350 !default;
 $link-color: #29b6f6 !default;
@@ -78,9 +78,9 @@ $button-flat-color: #343434 !default;
 $button-flat-disabled-color: lighten(#999, 10%) !default;
 
 // Floating buttons
-$button-floating-background: $secondary-color !default;
+$button-floating-background: $primary-color !default;
 $button-floating-background-hover: $button-floating-background !default;
-$button-floating-color: #fff !default;
+$button-floating-color: white !default;
 $button-floating-size: 40px !default;
 $button-floating-large-size: 56px !default;
 $button-floating-radius: 50% !default;

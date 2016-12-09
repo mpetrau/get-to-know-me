@@ -1,6 +1,6 @@
-<div class="navbar-wagon">
+<div class="navbar">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
   <% end %>
 
@@ -20,27 +20,27 @@
 
 
 
-      <div class="navbar-wagon-item">
+
         <div class="fixed-action-btn horizontal">
 
-<%= image_tag current_user.facebook_picture_url.nil? ? "http://cdn3-3.kaneva.net/filestore9/5112880/6412551/squareUyellowUsmileyUface_ad.jpg" : current_user.facebook_picture_url , class: "btn-floating btn-large red" %>
+<%= image_tag current_user.facebook_picture_url.nil? ? "http://images.clipartbro.com/35/green-happy-face-35730.jpeg" : current_user.facebook_picture_url , class: "btn-floating btn-large" %>
 
 
     </a>
     <ul>
-      <li>
-              <%= link_to favorites_path, class: "btn-floating" do %>
-                <i class="fa fa-heart"></i>  <%= t(".profile", default: "Favorites") %>
+      <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "<%= t('.profile', default: 'Favorites') %>" >
+              <%= link_to favorites_path, class: "btn-floating waves-effect waves-light" do %>
+                <i class="fa fa-heart"></i>%>
               <% end %>
             </li>
-            <li>
+            <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
               <%= link_to "#", class: "btn-floating"  do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i>
               <% end %>
             </li>
-            <li>
+            <li  class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "  <%= t(".sign_out", default: "Log out") %>" >
               <%= link_to destroy_user_session_path, method: :delete, class: "btn-floating" do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>
               <% end %>
             </li>
     </ul>
@@ -56,7 +56,6 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-  </div>
 
 </div>
 
