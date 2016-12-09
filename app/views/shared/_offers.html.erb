@@ -1,14 +1,16 @@
 <div class="container">
-  <h1><%= t('offer.heading') %></h1>
+
   <div class="row">
     <% @offers.each do |offer| %>
     <div class="col-xs-12 col-sm-4">
-     <div>
       <div class ="card">
-       <div class="offer">
-        <%= link_to(offer.deal.url, target: "_blank") do %>
-         <div class="card-content">
-          <h2><%= offer.deal.name %></h2>
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag offer.deal.photo %>
+          <div class="card-link hidden"><%= link_to(offer.deal.url) %></div>
+        </div>
+        <div class="feedback hidden"><%= render partial: 'edit', locals: { offer: offer} %></div>
+        <div class="card-content activator">
+          <span class="card-title activator grey-text text-darken-4"><%= offer.deal.name %></span>
           <p><%= offer.deal.discount %></p>
           <div class="offer-actions hidden">
            <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
@@ -16,17 +18,15 @@
            <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
            <a href=""><i class="fa fa-expand flip" aria-hidden="true" ></i></a>
          </div>
-         <%= image_tag offer.deal.photo, class: "img-responsive img-card" %>
        </div>
-     </div>
-     <% end %>
-     <div class="reverse">
+     <div class="card-reveal">
       <%= render partial: 'show', locals: { offer: offer }%>
     </div>
   </div>
-</div>
+
 </div>
 <% end %>
 </div>
+
 </div>
 

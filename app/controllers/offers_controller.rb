@@ -6,6 +6,10 @@ class OffersController < ApplicationController
     @offers= Offer.where(user: current_user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
   end
 
+  def favorites
+    @offers= Offer.where(user: current_user, disliked?: false, liked?: true).sort{ |a,b| b.score <=> a.score }
+  end
+
   def edit
     @offer= Offer.find(params[:id])
   end
@@ -13,13 +17,13 @@ class OffersController < ApplicationController
   def update
     @offer= Offer.find(params[:id])
     if params[:bought?]
-      @offer.update(:bought? => true)
+      @offer.toggle!(:bought?)
     elsif params[:liked?]
-      @offer.update(:liked? => true)
+      @offer.toggle!(:liked?)
     elsif params[:disliked?]
-      @offer.update(:disliked? => true)
+      @offer.toggle(:disliked?)
     end
-    redirect_to offers_path
+    redirect_to (:back)
   end
 
   private
