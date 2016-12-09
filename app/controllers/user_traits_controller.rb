@@ -18,6 +18,21 @@ class UserTraitsController < ApplicationController
     flash[:notice] = "Thanks for sharing. We used it to target offers for you."
     redirect_to offers_path
   end
+  
+  def edit
+    @traits= Trait.all
+    @user_trait = UserTrait.new
+  end
+  
+  def update
+    @user_trait = UserTrait.find(params[:id_trait].to_i)
+    @user_trait.update(user_traits_params)
+  end
+  
+  def destroy
+    UserTrait.find(params[:id_trait].to_i).destroy
+    redirect_to profile_path(current_user)
+  end
 
   private
 

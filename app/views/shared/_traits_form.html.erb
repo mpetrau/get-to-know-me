@@ -1,0 +1,7 @@
+<%= simple_form_for @user_trait do |f| %>
+  <%= collection_check_boxes(:user, :traits, @traits, :id, :name) do |b| %>
+    <%= b.label(class: "btn btn-lg") {b.check_box(class: "hidden") + b.text} %>
+  <% end %>
+  <br>
+  <%= f.submit "Next", class: "btn btn-success", id: "send-traits" %>
+<% end %>

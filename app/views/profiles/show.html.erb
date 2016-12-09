@@ -1,0 +1,27 @@
+<% if @user.first_name != nil %>
+ <h1><%= @user.first_name %></h1>
+<% else %>
+  <h1><%= @user.email %></h1>
+<% end %>
+<h3>My traits:</h3>
+  <ul>
+    <% @traits.each do |trait| %>
+      <li>
+        <%= trait.trait.name %>
+        <%= link_to profile_del_trait_path(@user,trait.id) , method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<%= link_to "Change your traits", edit_user_trait_path, class: "btn btn-primary" %>
+<h3>My saved offers:</h3>
+<ul>
+<% @user.offers.where( :liked? => true ).each do |offer| %>
+  <li>
+    <%= link_to(favorites_path) do %>
+      <%= offer.deal.name %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

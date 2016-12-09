@@ -6,13 +6,7 @@
     <div class="col-md-8 col-md-offset-2">
       <h1>Please select the traits that are applicable to you:</h1>
       <hr>
-      <%= simple_form_for @user_trait do |f| %>
-        <%= collection_check_boxes(:user, :traits, @traits, :id, :name) do |b| %>
-          <%= b.label(class: "btn btn-lg") {b.check_box(class: "hidden") + b.text} %>
-        <% end %>
-        <br>
-        <%= f.submit "Next", class: "btn btn-success", id: "send-traits" %>
-      <% end %>
+     <%= render 'shared/traits_form' %>
     </div>
   </div>
 </div>
