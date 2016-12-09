@@ -28,3 +28,6 @@ en:
   offer:
     heading: "Here is a list of your deals"
 
+  favorite:
+    heading: "See the offers you liked"
+
