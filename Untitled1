@@ -8,15 +8,25 @@
       <p><%= t('edit.subheading') %></p>
       <div class="row">
         <div class="col-sm-4 icon icon-green">
-        <%= link_to "<i class='fa fa-money' aria-hidden='true'></i><hr>Bought".html_safe, offer_path(:bought? => true ), method: :patch  %>
+        <%= link_to "<i class='fa fa-money' aria-hidden='true'></i><hr>Bought".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %>
         </div>
         <div class="col-sm-4 icon icon-yellow">
-        <%= link_to "<i class='fa fa-thumbs-o-up' aria-hidden='true'></i><hr>Liked".html_safe, offer_path(:liked? => true ), method: :patch  %>
+        <%= link_to "<i class='fa fa-thumbs-o-up' aria-hidden='true'></i><hr>Liked".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %>
         </div>
         <div class="col-sm-4 icon icon-red">
-        <%= link_to "<i class='fa fa-frown-o' aria-hidden='true'></i><hr>Disliked".html_safe, offer_path(:disliked? => true ), method: :patch  %>
+        <%= link_to "<i class='fa fa-frown-o' aria-hidden='true'></i><hr>Disliked".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+=======
+      <%= simple_form_for @user_trait do |f| %>
+        <%= collection_check_boxes(:user, :traits, @traits, :id, :name) do |b| %>
+          <%= b.label(class: "btn btn-lg") {b.check_box(class: "hidden") + b.text} %>
+        <% end %>
+        <br>
+        <%= f.submit "Next", class: "btn green", id: "send-traits" %>
+      <% end %>
+>>>>>>> dev
