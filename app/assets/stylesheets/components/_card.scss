@@ -4,3 +4,16 @@
   max-height: 200px;
   background-size:cover;
 }
+
+.subdue{
+  filter: grayscale(0.8);
+  filter: opacity(0.2);
+  position:relative;
+}
+
+.feedback{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+}
