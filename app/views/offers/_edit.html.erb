@@ -1,0 +1,19 @@
+
+<%= offer.deal.name %>
+<p><%= t('edit.heading') %></p>
+<p><%= t('edit.subheading') %></p>
+<div>
+<ul><li>
+  <%= link_to "<i class='fa fa-money' aria-hidden='true'></i><hr>Bought".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %>
+</li>
+<li>
+  <%= link_to "<i class='fa fa-thumbs-o-up' aria-hidden='true'></i><hr>Liked".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %>
+</li>
+
+<li>
+  <%= link_to "<i class='fa fa-frown-o' aria-hidden='true'></i><hr>Disliked".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %>
+</li>
+
+</ul>
+
+</div>
