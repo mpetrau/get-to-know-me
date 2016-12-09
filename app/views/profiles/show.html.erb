@@ -14,7 +14,7 @@
       </li>
     <% end %>
   </ul>
-<%= link_to "Change your traits", edit_user_trait_path, class: "btn btn-primary" %>
+<%= link_to "Change your traits", user_traits_path, class: "btn btn-primary" %>
 <h3>My saved offers:</h3>
 <ul>
 <% @user.offers.where( :liked? => true ).each do |offer| %>

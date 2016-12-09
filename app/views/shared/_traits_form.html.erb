@@ -1,5 +1,5 @@
 <%= simple_form_for @user_trait do |f| %>
-  <%= collection_check_boxes(:user, :traits, @traits, :id, :name) do |b| %>
+  <%= collection_check_boxes(:user, :trait_ids, @traits, :id, :name) do |b| %>
     <%= b.label(class: "btn btn-lg") {b.check_box(class: "hidden") + b.text} %>
   <% end %>
   <br>
