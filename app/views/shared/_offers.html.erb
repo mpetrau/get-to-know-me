@@ -7,11 +7,10 @@
       <div class ="card">
        <div class="offer">
          <div class="card-link">
-          <%= link_to(offer.deal.url, class: "all-card", target: "_blank") do %>
+          <%= link_to(offer.deal.url) do %>
         </div>
           <div class="edit hidden">
-            <h1>I'm here</h1>
-            <%= render partial: 'edit', object: @offers, locals: { offer: offer}%>
+            <%= render partial: 'edit', locals: { offer: offer} %>
           </div>
         <div class="card-content">
           <h2><%= offer.deal.name %></h2>

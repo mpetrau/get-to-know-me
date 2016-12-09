@@ -33,7 +33,7 @@ $(document).ready(function(){
   $( ".offer" ).on('click', function() {
     if ($(this).find('.edit.hidden').length){
       $(this).find(".edit" ).removeClass( "hidden" );
-       var url = $('.card-link').find("a").attr("href");
+       var url = $(this).find('.card-link').find("a").attr("href");
         window.open(url, '_blank');
          return false;
     }
