@@ -13,15 +13,16 @@ top: 50px;
   background-color: transparent;
 }
 
-
 .navbar {
   height: 100px;
+  position: relative;
 }
 
 /* Navbar logo */
 .navbar-brand img {
-  width: 50px;
   position:absolute;
-  left: 50px;
-  top: 50px;
+  left: 40px;
+  top: 40px;
+  font-size: 40px;
+  max-width: 100px;
 }
