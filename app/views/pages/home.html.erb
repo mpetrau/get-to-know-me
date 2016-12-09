@@ -1,25 +1,26 @@
-<div class= "container">
-  <div class= "row">
-    <div class= "col-sm-4">
-      <h1><%= t('home.heading') %></h1>
-      <p><%= t('home.tagline') %></p>
-      <ul>
-        <li><%= t('home.bullet_1') %></li>
-        <li><%= t('home.bullet_2') %></li>
-        <li><%= t('home.bullet_3') %></li>
-      </ul>
-    </div>
-    <div class= "col-sm-4">
-      <% if current_user %>
-        <%= '' %>
-      <% else %>
-        <%= render template: 'devise/registrations/home' %>
-      <% end %>
-    </div>
-    <div class= "col-sm-4">
-      <h3><%= link_to t('home.alternative'), user_traits_path %></h3>
+<div class="wrapper-picture" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%), url(<%= image_path 'snowdog.jpg' %>);">
+  <div class= "container">
+    <div class= "row">
+      <div class= "col-sm-4">
+        <h1><%= t('home.heading') %></h1>
+        <p><%= t('home.tagline') %></p>
+        <ul>
+          <li><%= t('home.bullet_1') %></li>
+          <li><%= t('home.bullet_2') %></li>
+          <li><%= t('home.bullet_3') %></li>
+        </ul>
+      </div>
+      <div class= "col-sm-4">
+        <% if current_user %>
+          <%= '' %>
+        <% else %>
+          <%= render template: 'devise/registrations/home' %>
+        <% end %>
+      </div>
+      <div class= "col-sm-4">
+        <h3><%= link_to t('home.alternative'), user_traits_path %></h3>
+      </div>
     </div>
   </div>
 </div>
-
 
