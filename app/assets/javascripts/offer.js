@@ -23,21 +23,23 @@ $(document).ready(function(){
       }
     });
   });
-  $( ".offer" ).hover(
+  $( ".card" ).hover(
     function() {
       $(this).find(".offer-actions" ).removeClass( "hidden" );
     }, function() {
       $(this).find(".offer-actions" ).addClass( "hidden" );
     }
     );
-  $( ".offer" ).on('click', function() {
-    if ($(this).find('.edit.hidden').length){
-      $(this).find(".edit" ).removeClass( "hidden" );
-       var url = $(this).find('.card-link').find("a").attr("href");
+
+  $( ".card-image" ).on('click', function() {
+    if ($(this).next('.feedback.hidden').length){
+      $(this).next(".feedback" ).removeClass( "hidden" );
+       var url = $(this).next('.card-link').find("a").attr("href");
         window.open(url, '_blank');
+        $(this).addClass( "subdue" );
          return false;
     }
-    else $(this).find(".edit").addClass( "hidden" );
+    else $(this).next(".feedback").addClass( "hidden" );
   }
   );
 });
