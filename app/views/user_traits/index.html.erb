@@ -11,7 +11,7 @@
           <%= b.label(class: "btn btn-lg") {b.check_box(class: "hidden") + b.text} %>
         <% end %>
         <br>
-        <%= f.submit "Next", class: "btn btn-success", id: "send-traits" %>
+        <%= f.submit "Next", class: "btn green", id: "send-traits" %>
       <% end %>
     </div>
   </div>
@@ -41,7 +41,7 @@
 
     $(".btn").click(function(e){
         e.preventDefault();
-        $(this).toggleClass("btn-primary");
+        $(this).toggleClass("btn blue");
         var checkbox = $(this).find(':checkbox');
         checkbox.attr('checked', !checkbox.attr('checked'));
     });
