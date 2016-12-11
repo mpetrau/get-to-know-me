@@ -1,9 +1,9 @@
 <%= simple_form_for @user_trait do |f| %>
   <div class="traits-select">
   <%= collection_check_boxes(:user, :trait_ids, @traits, :id, :name) do |b| %>
-    <%= b.label(class: "btn btn-lg") {b.check_box(class: "hidden") + b.text} %>
+    <%= b.label(class: "btn btn-lg waves-effect waves-light") {b.check_box(class: "hidden") + b.text} %>
   <% end %>
   </div>
   <br>
-  <%= f.submit "Next", class: "btn btn-success", id: "send-traits" %>
+  <%= f.submit "Next", class: "btn-special waves-effect waves-light right", id: "send-traits" %>
 <% end %>

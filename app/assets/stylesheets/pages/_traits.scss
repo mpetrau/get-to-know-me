@@ -3,9 +3,13 @@
   .btn{
     margin: 5px;
   }
+  label ~ input[type="checkbox"]:checked{
+    background-color: $primary-color;
+    color: white;
+  }
 }
 
-label + #new_user_trait input[type=checkbox]:checked {
-  background-color: $primary-color;
-  color: white;
-}
+#new_user_trait .btn-special{
+    margin-top: 20px;
+    margin-right: 30px;
+  }

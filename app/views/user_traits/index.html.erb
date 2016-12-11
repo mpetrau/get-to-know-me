@@ -3,7 +3,7 @@
 
 <div class="container">
 
-    <div class="col-xs-12 col-md-offset-">
+    <div class="col-xs-12">
       <h4>please select the traits that are applicable to you</h4>
       <hr>
      <%= render 'shared/traits_form' %>
@@ -32,6 +32,12 @@
         return true
       }
     }
+
+   $(".btn").click(function(e){
+        e.preventDefault();
+        var checkbox = $(this).find(':checkbox');
+        checkbox.attr('checked', !checkbox.attr('checked'));
+    });
 
   });
 
