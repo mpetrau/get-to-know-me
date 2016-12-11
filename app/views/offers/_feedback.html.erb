@@ -5,9 +5,9 @@
   <tr>
     <td>
       <ul class="list-inline">
-      <li class='icon icon-green'><%= link_to "<i class='fa fa-money' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %></li>
-        <li class='icon icon-red'><%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %></li>
-        <li class='icon icon-blue'><%= link_to "<i class='fa fa-thumbs-down' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %></li>
+      <li class='icon' ><%= link_to "<i class='fa fa-money' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch, class: " small-tooltip", title: "bought", style: "color:$success-color;"  %></li>
+        <li class='icon'><%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch, class: " small-tooltip", title: "liked", style: "color:$error-color;" %></li>
+        <li class='icon'><%= link_to "<i class='fa fa-thumbs-down' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch, class: " small-tooltip", title: "disliked", style: "color:$blue;" %></li>
       </ul>
     </td>
   </tr>

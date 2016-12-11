@@ -1,7 +1,31 @@
+// # customize the tooltip from Materialize
 .material-tooltip {
   color: $secondary-color;
 }
 
 .backdrop {
   background-color: transparent;
+}
+
+// # a small tooltip (for feedback menu) - CSS and HTML only, no JS
+
+.small-tooltip:hover:after{
+    color: $secondary-color-dark;
+    content: attr(title);
+    position: absolute;
+    top: 105%;
+    left: 0;
+    z-index: 98;
+    font-size:14px;
+    text-align: center;
+    width: 100%;
+    transform-origin: 50% 0%;
+    transform: translate3d(0,0,0);
+  }
+
+.offer-actions, .offer-actions-reverse{
+  .small-tooltip:hover:after{
+  top: 80%;
+  color: $primary-color;
+}
 }

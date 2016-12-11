@@ -90,6 +90,10 @@
   .fa.deactivator{
     visibility: hidden;
 }
+  li {
+    padding: 0;
+    position:relative;
+  }
 }
 
 // 2.2 card menu settings for the reverse side
@@ -123,6 +127,10 @@
   .fa.activator{
     visibility: hidden;
   }
+  li {
+    padding: 0;
+    position:relative;
+  }
 }
 
 // 3. Card reverse-side settings
@@ -142,6 +150,7 @@
 .offer-text td {
   margin-left: 10px;
   padding: 10px 0px 10px 20px;
+  text-align: left;
 }
 
 // 3.2 Card reverse title
@@ -193,6 +202,20 @@
 
 .feedback-text li {
   padding: 0 10px;
+  position: relative;
 }
 
+// 4.3 Colors of icons
+
+.feedback-text{
+  .fa-money{
+
+  }
+  .fa-heart{
+
+  }
+  .fa-thumbs-down{
+
+  }
+}
 
