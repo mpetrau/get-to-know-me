@@ -1,0 +1,11 @@
+.traits-select{
+  text-align: center;
+  .btn{
+    margin: 5px;
+  }
+}
+
+label + #new_user_trait input[type=checkbox]:checked {
+  background-color: $primary-color;
+  color: white;
+}
