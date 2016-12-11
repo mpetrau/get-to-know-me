@@ -23,7 +23,7 @@ en:
     price: "price"
     provider: "provider"
     tags: "offer tags"
-    score: "offer score"
+    score: "score"
 
   offer:
     heading: "Here is a list of your deals"

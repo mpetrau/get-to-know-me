@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $(".flip").on("click",function(e){
     e.preventDefault();
     var ele = $(this).closest(".card");
@@ -14,6 +15,7 @@ $(document).ready(function(){
       $(this).closest(".card").find(".offer").fadeIn();
     });
   });
+
   $(".remove").on("click",function(e){
     $.ajax({
       url: "",
@@ -28,8 +30,7 @@ $(document).ready(function(){
       $(this).find(".offer-actions" ).removeClass( "hidden" );
     }, function() {
       $(this).find(".offer-actions" ).addClass( "hidden" );
-    }
-    );
+    });
 
   $( ".card-image" ).on('click', function() {
     if ($(this).next('.feedback.hidden').length){
@@ -40,8 +41,24 @@ $(document).ready(function(){
          return false;
     }
     else $(this).next(".feedback").addClass( "hidden" );
-  }
-  );
+  });
+
+
+$(document).on('click.card', '.card', function (e) {
+      if ($(this).find('> .card-reveal').length) {
+        if ($(e.target).is($('.card-reveal .deactivator'))|| $(e.target).is($('.card-reveal.deactivator'))) {
+          // Make Reveal animate down and display none
+          $(this).find('.card-reveal').velocity(
+            {translateY: 0}, {
+              duration: 225,
+              queue: false,
+              easing: 'easeInOutQuad',
+              complete: function() { $(this).css({ display: 'none'}); }
+            }
+          );
+        }
+      }
+    });
 });
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
