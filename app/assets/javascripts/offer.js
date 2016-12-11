@@ -38,9 +38,11 @@ $(document).ready(function(){
        var url = $(this).next('.card-link').find("a").attr("href");
         window.open(url, '_blank');
         $(this).addClass( "subdue" );
+        $(this).next(".feedback").next(".offer-actions" ).hide();
          return false;
     }
-    else $(this).next(".feedback").addClass( "hidden" );
+    else
+      $(this).next(".feedback").addClass( "hidden" );
   });
 
 
