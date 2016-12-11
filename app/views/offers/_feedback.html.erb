@@ -1,14 +1,17 @@
-      <p><%= t('edit.heading') %></p>
+<table class="feedback-text">
+  <tr>
+    <th><%= t('edit.heading') %></th>
+  </tr>
+  <tr>
+    <td>
       <ul class="list-inline">
-        <li class="icon icon-green">
-          <%= link_to "<i class='fa fa-money' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %>
-        </li>
-        <li class="icon icon-yellow">
-          <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %>
-        </li>
-        <li class="icon icon-orange">
-          <%= link_to "<i class='fa fa-thumbs-down' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %>
-        </li>
-
+      <li class='icon icon-green'><%= link_to "<i class='fa fa-money' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :bought? => true ), method: :patch  %></li>
+        <li class='icon icon-red'><%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :liked? => true ), method: :patch  %></li>
+        <li class='icon icon-blue'><%= link_to "<i class='fa fa-thumbs-down' aria-hidden='true'></i>".html_safe, offer_path(id: offer.id, :disliked? => true ), method: :patch  %></li>
       </ul>
-            <p><%= t('edit.subheading') %></p>
+    </td>
+  </tr>
+  <tr>
+    <td><%= t('edit.subheading') %></td>
+  </tr>
+</table>
