@@ -209,13 +209,22 @@
 
 .feedback-text{
   .fa-money{
-
+    color: $success-color;
+    &:hover{
+      filter: brightness(75%);
+    }
   }
   .fa-heart{
-
+    color: $error-color;
+    &:hover{
+      filter: brightness(75%);
+    }
   }
   .fa-thumbs-down{
-
+    color: $blue;
+    &:hover{
+      filter: brightness(75%);
+    }
   }
 }
 
