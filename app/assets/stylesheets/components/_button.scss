@@ -18,4 +18,7 @@
 .btn-active{
   background-color: $primary-color;
   color: white;
+  &:hover{
+    color:white;
+  }
 }
