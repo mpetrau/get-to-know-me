@@ -1,39 +1,26 @@
-<div class="container">
-  <div class="row">
-    <span class="card-title grey-text text-darken-4"><%= t('cardreverse.product') %><i class="fa fa-undo right">close</i></span>
-
-    <div class="col-sm-4">
-      <%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch  %>
-      <%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#" %>
-      <%= link_to '<i class="fa fa-times-circle remove" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch  %>
-    </div>
-  </div>
-  <div class="row">
-    <table>
-      <tr>
-        <th></th>
-        <td><%= offer.deal.name %></td>
-      </tr>
-      <tr>
-        <th><%= t('cardreverse.price') %></th>
-        <td><%= offer.deal.new_price %></td>
-      </tr>
-      <tr>
-        <th><%= t('cardreverse.provider') %></th>
-        <td><%= offer.deal.provider %></td>
-      </tr>
-      <tr>
-        <th><%= t('cardreverse.tags') %></th>
-        <td><% offer.deal.tags.each do |t| %>
-            <%= "#" + t.name + " " %>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th><%= t('cardreverse.score') %></th>
-        <td><%= offer.score %></td>
-      </tr>
-    </table>
-    <%= link_to "Go to deal", offer.deal.url, class: "btn btn-primary", target: "_blank" %>
-  </div>
+<div class="offer-actions-reverse">
+  <%= render partial: 'card_menu', locals: { offer: offer } %>
 </div>
+<span class="card-title grey-text text-darken-4"> <%= offer.deal.name %></span>
+<table class="offer-text">
+  <tr>
+    <th class='deactivator'><%= t('cardreverse.price') %></th>
+    <td class='deactivator'><%= offer.deal.new_price %></td>
+  </tr>
+  <tr>
+    <th class='deactivator'><%= t('cardreverse.provider') %></th>
+    <td class='deactivator'><%= offer.deal.provider %></td>
+  </tr>
+  <tr>
+    <th class='deactivator'><%= t('cardreverse.tags') %></th>
+    <td class='deactivator'><% offer.deal.tags.each do |t| %>
+      <%= "#" + t.name + " " %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th class='deactivator'><%= t('cardreverse.score') %></th>
+    <td class='deactivator'><%= offer.score %></td>
+  </tr>
+</table>
+<div class="center-align"><%= link_to "see deal", offer.deal.url, class: "btn btn-active", target: "_blank" %></div>

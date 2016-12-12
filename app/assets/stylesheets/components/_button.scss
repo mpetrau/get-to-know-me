@@ -1,0 +1,28 @@
+.btn:hover{
+  color: $primary-color;
+}
+
+.btn-special{
+  color: $secondary-color;
+  background-color: white;
+  font-weight: lighter;
+  border: none;
+  font-size: 40px;
+  padding: 5px;
+  text-transform: uppercase;
+  &:hover{
+    color: $primary-color;
+  }
+}
+
+.btn-special-sm{
+  font-size: 16px;
+}
+
+.btn-active{
+  background-color: $primary-color;
+  color: white;
+  &:hover{
+    color:white;
+  }
+}

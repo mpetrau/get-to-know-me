@@ -1,24 +1,20 @@
-/* Main class */
-.fixed-action-btn{
+// 1. Navbar primary selector
+.navbar {
+  height: 0;
+  position: relative;
+  min-height: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+// 2. Fix logo and action items in the corners
+
+.fixed-action-btn, .login-call{
 position:absolute;
 right: 50px;
 top: 50px;
 }
 
-.material-tooltip {
-  color: $secondary-color;
-}
-
-.backdrop {
-  background-color: transparent;
-}
-
-.navbar {
-  height: 100px;
-  position: relative;
-}
-
-/* Navbar logo */
 .navbar-brand img {
   position:absolute;
   left: 40px;

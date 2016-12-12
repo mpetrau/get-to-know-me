@@ -38,10 +38,10 @@ $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: #b0bec5 !default; //blue grey
+$secondary-color-dark: darken($secondary-color, 15%); //blue grey
 $success-color: #4CAF50 !default;
 $error-color: #ef5350 !default;
 $link-color: #29b6f6 !default;
-
 
 // 2. Badges
 // ==========================================================================
@@ -58,16 +58,16 @@ $button-background-focus: lighten($secondary-color, 4%) !default;
 $button-font-size: 1.3rem !default;
 $button-height: 36px !default;
 $button-padding: 0 2rem !default;
-$button-radius: 2px !default;
+$button-radius: 70px !default;
 
 // Disabled styles
 $button-disabled-background: #DFDFDF !default;
 $button-disabled-color: #9F9F9F !default;
 
 // Raised buttons
-$button-raised-background: $secondary-color !default;
-$button-raised-background-hover: lighten($button-raised-background, 5%) !default;
-$button-raised-color: #fff !default;
+$button-raised-background: white !default;
+$button-raised-background-hover: none !default;
+$button-raised-color: $secondary-color !default;
 
 // Large buttons
 $button-large-icon-font-size: 1.6rem !default;

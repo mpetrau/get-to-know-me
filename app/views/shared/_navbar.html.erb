@@ -1,11 +1,10 @@
 <div class="navbar">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= image_tag "logo.png" %>
   <% end %>
 
-
-    <!-- Search form -->
+  <!-- Search form -->
 <!--     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
@@ -13,45 +12,42 @@
       </button>
     </form> -->
 
-    <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Profile picture and dropdown -->
-        <div class="fixed-action-btn horizontal">
+    <div class="fixed-action-btn horizontal">
 
-<%= image_tag current_user.facebook_picture_url.nil? ? "http://images.clipartbro.com/35/green-happy-face-35730.jpeg" : current_user.facebook_picture_url , class: "btn-floating btn-large" %>
+      <%= image_tag current_user.facebook_picture_url.nil? ? "http://images.clipartbro.com/35/green-happy-face-35730.jpeg" : current_user.facebook_picture_url , class: "btn-floating btn-large" %>
 
+      <ul>
+        <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "<%= t('.profile', default: 'Favorites') %>" >
+          <%= link_to favorites_path, class: "btn-floating waves-effect waves-light" do %>
+          <i class="fa fa-heart"></i>%>
+          <% end %>
+        </li>
+        <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
+          <%= link_to profile_path(:id), class: "btn-floating"  do %>
+          <i class="fa fa-user"></i>
+          <% end %>
+        </li>
+        <li  class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "  <%= t(".sign_out", default: "Log out") %>" >
+          <%= link_to destroy_user_session_path, method: :delete, class: "btn-floating" do %>
+          <i class="fa fa-sign-out"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
 
-    </a>
-    <ul>
-      <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "<%= t('.profile', default: 'Favorites') %>" >
-              <%= link_to favorites_path, class: "btn-floating waves-effect waves-light" do %>
-                <i class="fa fa-heart"></i>%>
-              <% end %>
-            </li>
-            <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
-              <%= link_to profile_path(:id), class: "btn-floating"  do %>
-                <i class="fa fa-user"></i>
-              <% end %>
-            </li>
-            <li  class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "  <%= t(".sign_out", default: "Log out") %>" >
-              <%= link_to destroy_user_session_path, method: :delete, class: "btn-floating" do %>
-                <i class="fa fa-sign-out"></i>
-              <% end %>
-            </li>
-    </ul>
   </div>
 
-      </div>
+  <% else %>
 
-    <% else %>
+  <!-- Login text link -->
+  <div class="login-call">
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-active" %>
+  </div>
 
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn fixed-action-btn" %>
 
-    <% end %>
-
-    <!-- Button (call-to-action) -->
+  <% end %>
 
 </div>
 

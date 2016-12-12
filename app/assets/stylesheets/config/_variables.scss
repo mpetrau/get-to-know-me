@@ -24,10 +24,10 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color: #c6ff00; // do not use this, use "$primary-color" instead
 
-$gray: #000000;
-$blue: blue;
+$gray: #000000;  // do not use this, use "$secondary-color" instead
+$blue: #2196F3;
 $greed: green;
 $red: red;
 $yellow: yellow;
