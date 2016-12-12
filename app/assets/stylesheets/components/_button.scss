@@ -26,3 +26,17 @@
     color:white;
   }
 }
+
+.btn-facebook {
+  padding: 20px;
+  background-color: #3B539A;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  &:hover{
+      opacity: 0.9;
+  color: white;
+  text-decoration: none;
+  }
+}
+

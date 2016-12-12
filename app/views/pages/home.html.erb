@@ -1,28 +1,78 @@
-<div class="wrapper-picture" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%), url(<%= image_path 'snowdog.jpg' %>);">
+<div class="wrapper-picture" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%), url(<%= image_path 'dog-jumping.jpg' %>);">
   <div class= "container">
     <div class= "row">
-      <div class= "col-sm-4">
-        <h1><%= t('home.heading') %></h1>
-        <p><%= t('home.tagline') %></p>
+      <div class= "col-sm-12">
+        <h2>Discover the Best Deals & Discounts</h2>
+        <h5>Scout sniffs out the best online and ofline deals and delivers the top 6 to you daily</h5>
+   <!--      <h2><%#= t('home.heading') %></h2>
+        <h3><%#= t('home.tagline') %></h3>
         <ul>
-          <li><%= t('home.bullet_1') %></li>
-          <li><%= t('home.bullet_2') %></li>
-          <li><%= t('home.bullet_3') %></li>
-        </ul>
+          <li><%#= t('home.bullet_1') %></li>
+          <li><%#= t('home.bullet_2') %></li>
+          <li><%#= t('home.bullet_3') %></li>
+        </ul> -->
+        <div class="row padded-small">
+         <%= link_to '<i class="fa fa-facebook"></i> Get Started with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
+       </div>
+       <div class="row padded-mini">
+        <%= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
       </div>
-      <div class= "col-sm-4">
-        <% if current_user %>
-          <%= '' %>
-        <% else %>
-          <%= render template: 'devise/registrations/home' %>
-        <% end %>
-      </div>
-<!--  commented out until this functionality is implemented
-<div class= "col-sm-4">
-      <h3><%#= link_to t('home.alternative'), user_traits_path %></h3>
-    </div> -->
+    </div>
   </div>
 </div>
 </div>
+
+<div class="container text-center padded">
+  <div class="row">
+    <h2>Features</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag "save.png", class: "icon" %>
+     <h5>Save Money</h5>
+     <p>Get access to the best online and offline deals that are personalized to you</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+    <%= image_tag "search.png", class: "icon" %>
+    <h5>Smart Matching</h5>
+    <p>Scout searches the web and only matches the deals that are most relevant to your interests</p>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <%= image_tag "privacy.png", class: "icon" %>
+    <h5>Privacy</h5>
+    <p>You set the privacy and determine what information you want to share </p>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <%= image_tag "smart.png", class: "icon" %>
+    <h5>Auto-Improve</h5>
+    <p>As you provide feedback on your deals, the system will automatically improve the deals we provide</p>
+  </div>
+</div>
+</div>
+
+<div class="wrapper-how-works bg-grey-lighter">
+
+  <div class="container text-center padded">
+    <h2>How it works</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm 4 col-md-4">
+        <h3>Step 1</h3>
+        <h5>Share with us the traits that best describe you, or import from your social accounts.</h5>
+      </div>
+      <div class="col-xs-12 col-sm 4 col-md-4">
+        <h3>Step 2</h3>
+        <h5>We'll search thousands of deals online and offline and deliver you the top 6 every day.</h5>
+      </div>
+      <div class="col-xs-12 col-sm 4 col-md-4">
+        <h3>Step 3</h3>
+        <h5>Rate the deals we've sent and we'll get smarter so you continuously get better deals</h5>
+      </div>
+    </div>
+    <div class="row padded-small">
+      <%= link_to "Get Started Today", new_user_registration_path, {class: "btn btn-special-large"} %>
+    </div>
+  </div>
+</div>
+
 
 
