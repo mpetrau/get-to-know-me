@@ -20,13 +20,17 @@ class UserTraitsController < ApplicationController
   def update
     @new_traits = user_traits_params[:trait_ids]
     # if user_signed_in?
-    current_user = temp_user unless user_signed_in?
+    current_user = temp_user if current_user.nil?
     current_user.user_traits.destroy_all
     @new_traits.each do |trait|
         new_trait = current_user.user_traits.create(trait_id: trait)
       end
       GenerateOffers.generate_user_offers(current_user)
-      flash[:notice] = "Thanks for sharing. We used it to target offers for you."
+      if temp_user?
+        flash[:notice] = "Thanks for sharing, here are some SAMPLE offers for you"
+      else
+        flash[:notice] = "Thanks for sharing. We used it to target offers for you."
+      end
     # else
     #   cookies.delete :traits
     #   cookies.delete :traits

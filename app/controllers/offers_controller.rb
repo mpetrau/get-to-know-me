@@ -4,8 +4,9 @@ class OffersController < ApplicationController
 
   def index
     # if user_signed_in?
-    current_user = temp_user unless user_signed_in?
+    current_user = temp_user if current_user.nil?
     @offers= Offer.where(user: current_user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
+    byebug
     # else
     # @offers = JSON.parse(cookies[:offers])
     # end
