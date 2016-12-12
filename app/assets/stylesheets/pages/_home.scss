@@ -7,9 +7,33 @@
   color: white;
   text-align: center;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */ 
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.wrapper-how-works {
+  color: white;
+  text-align: center;
+}
+
+.home-link {
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.email-link {
+  color: $secondary-color;
+      font-size: 14px;
+  &:hover {
+    text-decoration: none;
+    color: $secondary-color;
+    opacity: 0.8;
+  }
 }
