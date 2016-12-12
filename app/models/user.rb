@@ -12,8 +12,24 @@ class User < ApplicationRecord
   has_many :deal_tags, through: :deals
   has_many :tags, through: :deal_tags
 
-  validates :email, presence: :true
+  # validates :email, presence: :true
   #removed :location, from validation logic until functionality is added.
+
+  # def email_required?
+  #  if user_type == "member"
+  #   true
+  #  else
+  #  new_record? ? false : super
+  #   end
+  # end
+
+  # def password_required?
+  #  if user_type == "member"
+  #   true
+  # else
+  #   new_record? ? false : super
+  # end
+  # end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)

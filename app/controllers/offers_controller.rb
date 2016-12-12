@@ -3,7 +3,11 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
+    # if user_signed_in?
     @offers= Offer.where(user: current_user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
+    # else
+    # @offers = JSON.parse(cookies[:offers])
+    # end
   end
 
   def favorites
