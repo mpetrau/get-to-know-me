@@ -15,6 +15,9 @@
     <% end %>
   </ul>
 <%= link_to "Change your traits", user_traits_path, class: "btn btn-primary" %>
+<h3>My Linked Accounts</h3>
+<%= link_to "Facebook", user_traits_path%>
+  <i class="fa fa-trash" aria-hidden="true"></i>
 <h3>My saved offers:</h3>
 <ul>
 <% @user.offers.where( :liked? => true ).each do |offer| %>
