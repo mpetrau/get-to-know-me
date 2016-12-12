@@ -1,53 +1,50 @@
 <div class="hidden alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Please select at least two!</div>
-  <div class="row">
 
-<div class="container">
 
-    <div class="col-xs-12">
-      <h4 >please select the traits that are applicable to you</h4>
-      <hr>
-     <%= render 'shared/traits_form' %>
+<div class="center-flex">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h4 class="page-header">please select the traits that are applicable to you</h4>
+        <%= render 'shared/traits_form' %>
+      </div>
     </div>
   </div>
 </div>
 
-        <!-- alert("you have to select at least 2"); -->
-<!-- do |b| b.label(class: "btn btn-primary") end -->
-<!-- error: 'Please select at least 2 traits', input_html: { class: 'btn btn-primary' }  -->
 <%= content_for(:after_js) do %>
-  <%= javascript_tag do %>
+<%= javascript_tag do %>
 
-  $(document).ready(function() {
+$(document).ready(function() {
 
-    $("#send-traits").click(function(e) {
-      e.preventDefault();
-      if (validateLength()) { $("#new_user_trait").submit(); }
-    });
+var selected = $("#new_user_trait input[type=checkbox]:checked");
+selected.each(function(){
+$(this).closest(".btn").addClass('btn-active');
+});
 
-    function validateLength()
-    {
-      var selected = $("#new_user_trait input[type=checkbox]:checked");
-      if (selected.length < 2 ) {
-        $('.alert-warning').removeClass('hidden');
-      } else {
-        return true
-      }
-    }
+$("#send-traits").click(function(e) {
+e.preventDefault();
+if (validateLength()) { $("#new_user_trait").submit(); }
+});
 
-   $(".btn").click(function(e){
-        e.preventDefault();
-        $(this).toggleClass("btn-active");
-        var checkbox = $(this).find(':checkbox');
-        checkbox.attr('checked', !checkbox.attr('checked'));
-    });
+function validateLength()
+{
+  var selected = $("#new_user_trait input[type=checkbox]:checked");
+  if (selected.length < 2 ) {
+  $('.alert-warning').removeClass('hidden');
+} else {
+return true
+}
+}
 
-    var selected = $("#new_user_trait input[type=checkbox]:checked");
-      selected.each(function(){
-      $(this).closest(".btn").addClass('btn-active');
-    });
+$(".btn").click(function(e){
+e.preventDefault();
+$(this).toggleClass("btn-active");
+var checkbox = $(this).find(':checkbox');
+checkbox.attr('checked', !checkbox.attr('checked'));
+});
 
+});
 
-  });
-
-      <% end %>
+<% end %>
 <% end %>
