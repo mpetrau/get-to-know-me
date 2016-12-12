@@ -17,11 +17,13 @@
 
 $(document).ready(function() {
 
+// for all boxes that are selected upon page load, apply CSS
 var selected = $("#new_user_trait input[type=checkbox]:checked");
 selected.each(function(){
 $(this).closest(".btn").addClass('btn-active');
 });
 
+// upon clicking next, validate number of selections, and of less than 2, show alert message
 $("#send-traits").click(function(e) {
 e.preventDefault();
 if (validateLength()) { $("#new_user_trait").submit(); }
@@ -37,6 +39,7 @@ return true
 }
 }
 
+// on a Button click, toggle the class for active, and mark the form inputs correspondingly
 $(".btn").click(function(e){
 e.preventDefault();
 $(this).toggleClass("btn-active");

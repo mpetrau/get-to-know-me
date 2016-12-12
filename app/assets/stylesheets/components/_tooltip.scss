@@ -1,4 +1,4 @@
-// # customize the tooltip from Materialize
+// customize the tooltip from Materialize
 .material-tooltip {
   color: $secondary-color;
 }
@@ -7,7 +7,7 @@
   background-color: transparent;
 }
 
-// # a small tooltip (for feedback menu) - CSS and HTML only, no JS
+// A small tooltip (for feedback menu) - CSS and HTML only, no JS
 
 .small-tooltip:hover:after{
     color: $secondary-color-dark;

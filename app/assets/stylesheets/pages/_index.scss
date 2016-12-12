@@ -3,12 +3,15 @@
 @import "offer";
 @import "traits";
 
+// 1. Standard reusable page header
+
 .page-header{
   color: $secondary-color;
   padding: 20px;
   margin-bottom: 20px;
 }
 
+// 2. Required for creating a footer
 html, body {
   height: 100%;
 }
@@ -17,6 +20,7 @@ html, body {
   min-height: 100%;
 }
 
+// 3. element to center all page information in the center (vertical + horizontal)
 .center-flex {
   min-height: 100%;
   display: flex;
@@ -24,6 +28,8 @@ html, body {
   align-items: center;
   justify-content: center;
 }
+
+// 3.1 for smaller screens, readding margin on top so that Nav bottons do not overlay cards
 
 @media (max-width: 992px) {
   .center-flex {
