@@ -1,4 +1,4 @@
-<%= simple_form_for @user_trait do |f| %>
+<%= simple_form_for @user_trait, :url => user_trait_path(@user), :method => :patch do |f| %>
   <div class="traits-select">
   <%= collection_check_boxes(:user, :trait_ids, @traits, :id, :name) do |b| %>
     <%= b.label(class: "btn btn-lg waves-effect waves-light") {b.check_box(class: "hidden") + b.text} %>
