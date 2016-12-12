@@ -9,8 +9,9 @@ class UserTraitsController < ApplicationController
     else
       @user = User.create(user_type: "guest")
       sign_in :user, @user
-      @session_user = current_user
-      sign_out :user, @user
+      cookies.encrypted[:temp_user] = current_user.id
+      sign_in :user, @user
+      sign_out @user
     end
 
   end
@@ -19,8 +20,9 @@ class UserTraitsController < ApplicationController
   def update
     @new_traits = user_traits_params[:trait_ids]
     # if user_signed_in?
-      current_user.user_traits.destroy_all
-      @new_traits.each do |trait|
+    current_user = temp_user unless user_signed_in?
+    current_user.user_traits.destroy_all
+    @new_traits.each do |trait|
         new_trait = current_user.user_traits.create(trait_id: trait)
       end
       GenerateOffers.generate_user_offers(current_user)
