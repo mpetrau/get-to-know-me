@@ -2,17 +2,17 @@ class UserTraitsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    # byebug
     @traits = Trait.all
     @user_trait = UserTrait.new
-    # if user_signed_in?
+    if user_signed_in?
       @user = current_user
-    # else
-    #   unless cookies[:user].nil?
-    #     cookies[:user] = {id:  request.remote_ip}.to_json
-    #   end
-    #   @user = JSON.parse(cookies[:user])
-    # end
+    else
+      @user = User.create(user_type: "guest")
+      sign_in :user, @user
+      @session_user = current_user
+      sign_out :user, @user
+    end
+
   end
 
 
