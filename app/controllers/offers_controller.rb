@@ -22,7 +22,6 @@ class OffersController < ApplicationController
       @offer.toggle!(:liked?)
     elsif params[:disliked?]
       @offer.toggle!(:disliked?)
-      
     end
     redirect_to (:back)
   end
