@@ -15,8 +15,8 @@
         <div class="feedback hidden"><%= render partial: 'feedback', locals: { offer: offer} %></div>
         <div class="offer-actions hidden">
           <%= render partial: 'card_menu', locals: { offer: offer } %>
-          </div>
-        <div class="card-link hidden"><%= link_to(offer.deal.url) %></div>
+        </div>
+        <div class="card-link hidden"><%= offer.deal.url %></div>
         <div class="card-content activator">
           <p class="activator"><%= offer.deal.discount %></p>
           <span class="card-title grey-text text-darken-4 activator"><%= offer.deal.name %></span>
