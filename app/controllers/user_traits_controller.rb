@@ -7,7 +7,7 @@ class UserTraitsController < ApplicationController
   end
 
   def update
-    @user= current_or_guest_user
+    @user = current_or_guest_user
     @user.user_traits.destroy_all
     @new_traits = user_traits_params[:trait_ids]
     @new_traits.each do |trait|
@@ -16,13 +16,13 @@ class UserTraitsController < ApplicationController
     if current_user
       GenerateOffers.generate_member_offers(current_user)
       flash[:notice] = "Thanks for sharing. We used it to target offers for you"
-    end
-    if guest_user
+    elsif guest_user
       GenerateOffers.generate_guest_offers(guest_user)
       flash[:notice] = "Thanks for sharing, here are some sample deals for you"
+    else
+      redirect_to root_path
     end
     redirect_to offers_path
-    # byebug
   end
 
   def destroy

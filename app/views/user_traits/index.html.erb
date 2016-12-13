@@ -16,7 +16,7 @@
 <%= javascript_tag do %>
 
 $(document).ready(function() {
-
+console.log("inside ready");
 // for all boxes that are selected upon page load, apply CSS
 var selected = $("#new_user_trait input[type=checkbox]:checked");
 selected.each(function(){

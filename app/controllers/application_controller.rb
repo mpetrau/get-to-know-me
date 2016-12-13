@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       if session[:guest_user_id] && session[:guest_user_id] != current_user.id
         logging_in
         # reload guest_user to prevent caching problems before destruction
+        # byebug
         guest_user(with_retry = false).reload.try(:destroy)
         session[:guest_user_id] = nil
       end
@@ -36,11 +37,7 @@ class ApplicationController < ActionController::Base
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
   def logging_in
-    # guest_comments = guest_user.comments.all
-    # guest_comments.each do |comment|
-      # comment.user_id = current_user.id
-      # comment.save!
-    # end
+    guest_user.user_traits.each { |user_trait| user_trait.update(user: current_user)}
   end
 
   def create_guest_user

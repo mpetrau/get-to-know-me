@@ -3,7 +3,8 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @offers= Offer.where(user: current_user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
+    @user = current_or_guest_user
+    @offers= Offer.where(user: @user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
   end
 
   def favorites
