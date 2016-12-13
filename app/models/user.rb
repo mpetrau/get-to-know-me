@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, request_keys: [conditions: -> { where.not(user_type: 'guest') }]#, :validatable
+  :recoverable, :rememberable, :trackable, :validatable #request_keys: [conditions: -> { where.not(user_type: 'guest') }]
   devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :offers, dependent: :destroy
@@ -13,20 +13,11 @@ class User < ApplicationRecord
   has_many :tags, through: :deal_tags
 
 
-  validates_uniqueness_of :email, case_sensitive: false, allow_blank: false, if: :password_required?
-  validates_format_of :email, with: Devise.email_regexp, allow_blank: false, if: :password_required?
-  validates_presence_of :password, on: :create, if: :password_required?
+  # validates_uniqueness_of :email, case_sensitive: false, allow_blank: false, if: :password_required?
+  # validates_format_of :email, with: Devise.email_regexp, allow_blank: false, if: :password_required?
+  # validates_presence_of :password, on: :create, if: :password_required?
   # validates_confirmation_of :password, :on=>:create
-  validates_length_of :password, within: Devise.password_length, if: :password_required?
-
-
-  # def index_users_on_email
-  #   if user_type == "guest"
-  #     false
-  #   else
-  #     true
-  #   end
-  # end
+  # validates_length_of :password, within: Devise.password_length, if: :password_required?
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)

@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'pages/privacy'
 
-  get :users, as: :edit_user_registration, controller: :registrations, action: :edit
-  patch :users, as: "", controller: :registrations, action: :update
-
+  # get :users, as: :edit_user_registration, controller: :registrations, action: :edit
+  # patch :users, as: "", controller: :registrations, action: :update
 
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks'  }
