@@ -1,5 +1,11 @@
 <div class="container">
   <div class="row">
+    <% if @not_current_user %>
+      <div class="col-xs-12">
+        <h5 class="page-header">To have the best deals and full functionality, please <%= link_to '<i class="fa fa-facebook"></i> Sign Up with Facebook'.html_safe, user_facebook_omniauth_authorize_path,class: 'btn-facebook btn-facebook-small' %></h5>
+      </div>
+    <% end %>
+
     <% @offers.each do |offer| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class ="card small">

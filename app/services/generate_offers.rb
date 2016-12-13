@@ -10,7 +10,9 @@ class GenerateOffers
 
   def self.generate_guest_offers(user)
     @current_user = user
-    create_user_offers(scope: true)
+    if @current_user.offers.length == 0
+      create_user_offers(scope: true)
+    end
   end
 
   def self.generate_deal_offers

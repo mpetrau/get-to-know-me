@@ -4,6 +4,7 @@ class OffersController < ApplicationController
 
   def index
     @user = current_or_guest_user
+    @not_current_user = current_user.nil?
     @offers= Offer.where(user: @user, disliked?: false).sort{ |a,b| b.score <=> a.score }.first(6)
   end
 

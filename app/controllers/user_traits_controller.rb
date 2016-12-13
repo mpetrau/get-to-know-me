@@ -3,7 +3,10 @@ class UserTraitsController < ApplicationController
   def index
     @traits = Trait.all
     @user_trait = UserTrait.new
-    @user= current_or_guest_user
+    @user = current_or_guest_user
+    if @user.user_type == "guest" && @user.offers.length > 0
+      redirect_to offers_path
+    end
   end
 
   def update
@@ -18,7 +21,7 @@ class UserTraitsController < ApplicationController
       flash[:notice] = "Thanks for sharing. We used it to target offers for you"
     elsif guest_user
       GenerateOffers.generate_guest_offers(guest_user)
-      flash[:notice] = "Thanks for sharing, here are some sample deals for you"
+      flash[:notice] = "Here are some sample deals for you. For full functionality, please Sign Up"
     else
       redirect_to root_path
     end
