@@ -37,6 +37,9 @@ h3, p {
 
 .profile-info {
   margin-top: 70px;
+  li {
+    padding-top: 8px;
+  }
   i {
     color: $secondary-color;
     &:hover {
