@@ -15,12 +15,19 @@
          <%= link_to '<i class="fa fa-facebook"></i> Get Started with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
        </div>
        <div class="row padded-mini">
-        <%= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
+        <%#= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
+        <%= link_to 'Or Sign up with Email', '#signup', { class: "email-link"} %>
       </div>
     </div>
   </div>
 </div>
 </div>
+
+
+<div id="signup" class="modal">
+  <%= render 'devise/registrations/new-modal.html.erb' %>
+</div>
+
 
 <div class="container text-center padded">
   <div class="row">
