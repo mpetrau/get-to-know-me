@@ -127,10 +127,15 @@
   .fa.activator{
     visibility: hidden;
   }
+
   li {
     padding: 0;
     position:relative;
   }
+}
+
+.selected {
+  color: $primary-color !important;
 }
 
 // 3. Card reverse-side settings
@@ -167,7 +172,19 @@
 .card-reveal .btn{
   font-size: 16px;
   margin: 20px 0;
+  // position: fixed;
 }
+
+//3.4 Card reverse flexbox
+// .container-flex {
+//   display: flex;
+// }
+
+// .item-btn {
+//   align-self: baseline;
+//   position: fixed;
+//   z-index: 1;
+// }
 
 // 4. Card feedback side settings
 // 4.1 Background picture effect settings
@@ -215,19 +232,22 @@
 
 .feedback-text{
   .fa-money{
+    font-size: 6vh;
     color: $success-color;
     &:hover{
       filter: brightness(75%);
     }
   }
   .fa-heart{
+    font-size: 6vh;
     color: $error-color;
     &:hover{
       filter: brightness(75%);
     }
   }
   .fa-thumbs-down{
-    color: $blue;
+    font-size: 6vh;
+    color: #17384c;
     &:hover{
       filter: brightness(75%);
     }
