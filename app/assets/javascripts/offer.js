@@ -52,3 +52,18 @@ $(document).ready(function(){
 });
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
+
+// 5. the card menu buttons color stays when selected
+$(function(){
+	$('i').on('click', function(e){
+    $(this).addClass("selected");
+	});
+});
+
+// 6. auto-removing the alert flashes
+$(".alert").alert();
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);

@@ -8,8 +8,10 @@
   color: white;
 }
 .alert-info {
-  background: $green;
+  background: $success-color;
+  opacity: 0.8;
 }
 .alert-warning {
-  background: $red;
+  background: $error-color;
+  opacity: 0.8;
 }

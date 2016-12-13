@@ -1,6 +1,7 @@
 <div class="offer-actions-reverse">
   <%= render partial: 'card_menu', locals: { offer: offer } %>
 </div>
+<div class="container">
 <span class="card-title grey-text text-darken-4"> <%= offer.deal.name %></span>
 <table class="offer-text">
   <tr>
@@ -24,3 +25,4 @@
   </tr>
 </table>
 <div class="center-align"><%= link_to "see deal", offer.deal.url, class: "btn btn-active", target: "_blank" %></div>
+</div>
