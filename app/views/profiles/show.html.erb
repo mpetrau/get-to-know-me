@@ -1,30 +1,49 @@
-<% if @user.first_name != nil %>
- <h1><%= @user.first_name %></h1>
-<% else %>
-  <h1><%= @user.email %></h1>
-<% end %>
-<h3>My traits:</h3>
-  <ul>
-    <% @traits.each do |trait| %>
-      <li>
-        <%= trait.trait.name %>
-        <%= link_to profile_del_trait_path(@user,trait.id) , method: :delete, data: { confirm: 'Are you sure?' } do %>
+
+<div class="container">
+  <div class='row'>
+    <div class="col-xs-3 profile-container text-center">
+      <%= image_tag current_user.facebook_picture_url.nil? ? "http://images.clipartbro.com/35/green-happy-face-35730.jpeg" : current_user.facebook_picture_url , class: "btn-floating btn-large profile-picture" %>
+      <% if @user.first_name != nil %>
+       <h3><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></h3>
+      <% else %>
+        <p><%= @user.email %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-8 col-xs-offset-3">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>my saved offers:</h3>
+          <ul>
+          <% @user.offers.where( :liked? => true ).each do |offer| %>
+            <li>
+              <%= link_to(favorites_path, class:"deal-name") do %>
+                <%= image_tag offer.deal.photo, class:"deal-photo" %>
+                <%= offer.deal.name %>
+              <% end %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+        <div class="col-xs-12">
+          <h3>my traits:</h3>
+          <ul>
+            <% @traits.each do |trait| %>
+              <li>
+                <%= trait.trait.name.upcase %>
+                <%= link_to profile_del_trait_path(@user,trait.id) , method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to "Change your traits", user_traits_path, class: "btn btn-primary" %>
+        </div>
+        <div class="col-xs-12">
+          <h3>my linked accounts</h3>
+          <%= link_to "Facebook", user_traits_path%>
           <i class="fa fa-trash" aria-hidden="true"></i>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<%= link_to "Change your traits", user_traits_path, class: "btn btn-primary" %>
-<h3>My Linked Accounts</h3>
-<%= link_to "Facebook", user_traits_path%>
-  <i class="fa fa-trash" aria-hidden="true"></i>
-<h3>My saved offers:</h3>
-<ul>
-<% @user.offers.where( :liked? => true ).each do |offer| %>
-  <li>
-    <%= link_to(favorites_path) do %>
-      <%= offer.deal.name %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
