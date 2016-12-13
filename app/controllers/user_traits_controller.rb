@@ -13,9 +13,16 @@ class UserTraitsController < ApplicationController
     @new_traits.each do |trait|
       new_trait = @user.user_traits.create(trait_id: trait)
     end
-    GenerateOffers.generate_user_offers(current_or_guest_user)
-    flash[:notice] = "Thanks for sharing. We used it to target offers for you."
+    if current_user
+      GenerateOffers.generate_member_offers(current_user)
+      flash[:notice] = "Thanks for sharing. We used it to target offers for you"
+    end
+    if guest_user
+      GenerateOffers.generate_guest_offers(guest_user)
+      flash[:notice] = "Thanks for sharing, here are some sample deals for you"
+    end
     redirect_to offers_path
+    # byebug
   end
 
   def destroy
