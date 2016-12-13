@@ -41,7 +41,12 @@
 
   <!-- Login text link -->
   <div class="login-call">
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "home-link" %>
+    <%= link_to 'Login', '#modal1', { class: "home-link"} %>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <%= render 'devise/sessions/new-modal.html.erb' %>
+    </div>
+    <%#= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "home-link" %>
   </div>
   <% end %>
 
