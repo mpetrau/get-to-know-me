@@ -13,7 +13,7 @@
       <div class= "col-sm-4">
           <%# byebug %>
           <%= '' if  current_user  %>
-          <%= link_to "signup", edit_user_registration_path, method: :patch, class: "btn" if  @is_temp_user  %>
+          <%= link_to "signup", edit_user_registration_path, class: "btn" if  @is_temp_user  %>
           <%= render template: 'devise/registrations/home' unless current_user || @is_temp_user %>
       </div>
 
