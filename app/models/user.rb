@@ -13,27 +13,12 @@ class User < ApplicationRecord
   has_many :tags, through: :deal_tags
 
 
-  validates_uniqueness_of    :email,     :case_sensitive => false, :allow_blank => false, :if => :password_required?
-  validates_format_of    :email,    :with  => Devise.email_regexp, :allow_blank => false, :if => :password_required?
-  validates_presence_of :password, :on=>:create, :if => :password_required?
-  # validates_confirmation_of    :password, :on=>:create
-  validates_length_of    :password, :within => Devise.password_length, :if => :password_required?
+  validates_uniqueness_of :email, case_sensitive: false, allow_blank: false, if: :password_required?
+  validates_format_of :email, with: Devise.email_regexp, allow_blank: false, if: :password_required?
+  validates_presence_of :password, on: :create, if: :password_required?
+  # validates_confirmation_of :password, :on=>:create
+  validates_length_of :password, within: Devise.password_length, if: :password_required?
 
-  def email_required?
-   if user_type == "guest"
-     new_record? ? false : super
-   else
-      true
-  end
-  end
-
-  def password_required?
-    if user_type == "guest"
-      new_record? ? false : super
-    else
-      true
-    end
-  end
 
   # def index_users_on_email
   #   if user_type == "guest"
@@ -63,4 +48,21 @@ class User < ApplicationRecord
     return user
   end
 
+  private
+
+  def email_required?
+    if user_type == "guest"
+     new_record? ? false : super
+    else
+      true
+    end
+  end
+
+  def password_required?
+    if user_type == "guest"
+      new_record? ? false : super
+    else
+      true
+    end
+  end
 end

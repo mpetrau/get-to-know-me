@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  authenticated do
-    root to: 'offers#index', as: :authenticated
-  end
-  root to: 'pages#home'
+  # authenticated do
+  #   root to: 'offers#index', as: :authenticated
+  # end
+  root 'pages#home'
   get 'pages/privacy'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "registrations"  }

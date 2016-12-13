@@ -10,10 +10,8 @@ class UserTraitsController < ApplicationController
       @user = User.create(user_type: "guest")
       sign_in :user, @user
       cookies.encrypted[:temp_user] = current_user.id
-      sign_in :user, @user
       sign_out @user
     end
-
   end
 
 
