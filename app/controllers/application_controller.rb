@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   #   offers_path
   # end
 
-  def temp_user
-    User.find_by_id(cookies.encrypted[:temp_user])
-  end
+  # def temp_user
+  #   User.find_by_id(cookies.encrypted[:temp_user])
+  # end
 
-  def temp_user?
-    User.exists?(temp_user) && temp_user.email.empty? && temp_user.user_type == "guest"
-  end
+  # def temp_user?
+  #   User.exists?(temp_user) && temp_user.email.empty? && temp_user.user_type == "guest"
+  # end
 
 end

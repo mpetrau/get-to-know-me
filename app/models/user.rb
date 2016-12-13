@@ -41,19 +41,19 @@ class User < ApplicationRecord
 
   private
 
-  def email_required?
-    if user_type == "guest"
-     new_record? ? false : super
-    else
-      true
-    end
-  end
+  # def email_required?
+  #   if user_type == "guest"
+  #    new_record? ? false : super
+  #   else
+  #     true
+  #   end
+  # end
 
-  def password_required?
-    if user_type == "guest"
-      new_record? ? false : super
-    else
-      true
-    end
-  end
+  # def password_required?
+  #   if user_type == "guest"
+  #     new_record? ? false : super
+  #   else
+  #     true
+  #   end
+  # end
 end
