@@ -18,33 +18,28 @@ $( ".card" ).hover(
     $(this).find(".offer-actions" ).addClass( "hidden" );
   });
 
-// 3. On a card image, go to the deal website and flip Feedback view
-$( ".card-image, .btn-2see-deal" ).on('click', function() {
+// 3. On a card deal button, go to the deal website and flip Feedback view
+$( ".btn-2see-deal" ).on('click', function() {
   // on either selector, reset the starting traversing element to "card-image"
-  if ($(this).hasClass("btn-2see-deal")) {
-    var card_image = $(this).closest(".card-reveal").siblings(".card-image");
-  }
-  else {
-    var card_image = $(this);
-  };
+    var card_side = $(this).closest(".card-reveal");
   // start traversal and execute function
-  if ($(card_image).next('.feedback.hidden').length){
-    $(card_image).next(".feedback" ).removeClass( "hidden" );
+  if ($(card_side).siblings('.feedback.hidden').length){
+    $(card_side).siblings(".feedback" ).removeClass( "hidden" );
       // open URL from a card
-      var url = $(card_image).siblings(".card-link").text();
+      var url = $(card_side).siblings(".card-link").text();
       window.open(url, '_blank');
       // created the effect of muted background for a picture
-      $(card_image).addClass( "subdue" );
+      $(card_side).siblings(".card-image").addClass( "subdue" );
       // hide card menu for a card which shows Feedback form
-      $(card_image).next(".feedback").next(".offer-actions" ).hide();
+      $(card_side).siblings(".offer-actions" ).hide();
       // hide the card reverse, if the routing action was from btn-2see-deal
-      $(card_image).siblings(".card-reveal").hide();
+      $(card_side).hide();
       // disable card reverse side for a card which shows Feedback form
-      $(card_image).siblings(".card-content" ).children().addBack().removeClass('activator');
+      $(card_side).siblings(".card-content" ).children().addBack().removeClass('activator');
       return false;
     }
       else
-        $(card_image).next(".feedback").addClass( "hidden" );
+        $(card_side).siblings(".feedback").addClass( "hidden" );
     });
 
 // 4. To enable card 'flip' from multiple areas
