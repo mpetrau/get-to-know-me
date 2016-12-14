@@ -20,8 +20,8 @@ class OffersController < ApplicationController
       # from above (either from cookie, or new), select top 6 and pass into a view
       @offers = offers.select {|offer| offer.user ==  @user && offer.disliked? == false}.sort{ |a,b| b.score <=> a.score }.first(6)
       @is_incomplete_offers = @offers.length < 6
-    else # for Guest users, pick up top 6 offers (always static)
-      @offers = Offer.where(user: @user).sort{ |a,b| b.score <=> a.score }.first(6)
+    else # for Guest users, pick up top 5 offers (always static)
+      @offers = Offer.where(user: @user).sort{ |a,b| b.score <=> a.score }.first(5)
     end
 
   end
