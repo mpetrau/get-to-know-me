@@ -67,13 +67,6 @@ $(document).on('click.card', '.card', function (e) {
         });
     }, 5000);
 
-    // 6. reload page on click
-    // $('i').click(function() {
-    //   location.load(i);
-    // });
-    
-   //  $("#reload").load(".fa");
-  
 });
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
