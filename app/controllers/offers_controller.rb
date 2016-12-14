@@ -44,7 +44,16 @@ class OffersController < ApplicationController
     elsif params[:disliked?]
       @offer.toggle!(:disliked?)
     end
-    redirect_to (:back)
+
+    respond_to do |format|
+      format.json do
+        render json: @offer.attributes.to_json
+      end
+      format.html do
+        redirect_to(:back)
+      end
+    end
+
   end
 
   private

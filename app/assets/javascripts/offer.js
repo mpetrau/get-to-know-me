@@ -1,15 +1,15 @@
 $(document).ready(function(){
 // 1. Functionality to remove cards upon clicking dislike
-  $(".remove").on("click",function(e){
-     e.preventDefault();
-    $.ajax({
-      url: "",
-      context: document.body,
-      success: function(s,x){
-        $(this).html(s);
-      }
-  });
-});
+//   $(".remove").on("click",function(e){
+//      e.preventDefault();
+//     $.ajax({
+//       url: "",
+//       context: document.body,
+//       success: function(s,x){
+//         $(this).html(s);
+//       }
+//   });
+// });
 // 2. Adding card-menu on a card hover
 $( ".card" ).hover(
   function() {
@@ -67,10 +67,40 @@ $(document).on('click.card', '.card', function (e) {
         });
     }, 5000);
 
-    // 6. reload page on click
-    $('.reload').click(function() {
-    location.reload();
+    // 6. on card menu functions, execute the steps without reloading the page.
+    $(".offer-actions [title='like']").on('click', function(e) {
+        // on clicking the Like button, run Ajax to update the Offer
+        $.ajax({
+          url: $(this).attr('data'),
+          type: "PUT",
+          context: this,
+          // set proper headers for JSON request and response
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Accept', 'application/json');
+          },
+          // on success function, toggle the class and run a toast
+          success: function() {
+            $(this).toggleClass('selected');
+            Materialize.toast("Got your choice!", 4000);
+
+          },
+          // on a failure, raise an issue
+          error: function(jqXHR) {
+            console.log(jqXHR.responseText);
+            Materialize.toast("Try again..."+ jqXHR.responseText, 4000);
+          }
+          });
     });
+
+    // 6.1 on loading a page, inspect the Liked of all cards, and add related class
+        var likes = $(".card .offer-actions i[title='like']");
+        likes.each(function(){
+        //$(this).closest(".btn").append("I'm active")
+          if ($(this).attr('data').slice(-4) == "true"){
+            $(this).addClass('selected');
+          };
+        });
 });
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
