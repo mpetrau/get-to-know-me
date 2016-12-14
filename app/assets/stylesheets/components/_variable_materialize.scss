@@ -38,7 +38,7 @@ $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: #b0bec5 !default; //blue grey
-$secondary-color-dark: darken($secondary-color, 15%); //blue grey
+$secondary-color-dark: darken($secondary-color, 30%); //blue grey
 $success-color: #9efd38 !default;
 $error-color: #ff0046 !default;
 $link-color: #17384c !default;

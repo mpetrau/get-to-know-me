@@ -1,6 +1,6 @@
 // customize the tooltip from Materialize
 .material-tooltip {
-  color: $secondary-color;
+  color: $secondary-color-dark;
 }
 
 .backdrop {
@@ -10,7 +10,7 @@
 // A small tooltip (for feedback menu) - CSS and HTML only, no JS
 
 .small-tooltip:hover:after{
-    color: $secondary-color-dark;
+    color: darken($secondary-color-dark, 10%);
     content: attr(title);
     position: absolute;
     top: 105%;
