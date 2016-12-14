@@ -3,8 +3,8 @@
     <div class= "row">
       <div class= "col-sm-12">
       <h2>Get all the best deals without searching for hours</h2>
-        <!-- <h2>Discover the Best Deals & Discounts</h2> -->
-        <!-- <h5 class="padded-mini">Scout sniffs out the best deals and delivers the top 6 to you daily</h5> -->
+        <h2>Discover the Best Deals & Discounts</h2>
+        <h5 class="padded-mini">Scout sniffs out the best deals and delivers the top 6 to you daily</h5>
    <!--      <h2><%#= t('home.heading') %></h2>
         <h3><%#= t('home.tagline') %></h3>
         <ul>
@@ -12,15 +12,15 @@
           <li><%#= t('home.bullet_2') %></li>
           <li><%#= t('home.bullet_3') %></li>
         </ul> -->
-        <!-- <div class="row padded-small"> -->
-         <%#= link_to '<i class="fa fa-facebook"></i> Get Started with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
-       <!-- </div> -->
-       <!-- <div class="row padded-mini"> -->
+        <div class="row padded-small">
+         <%= link_to '<i class="fa fa-facebook"></i> Get Started with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
+       </div>
+       <div class="row padded-mini">
         <%#= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
-        <%#= link_to 'Or Sign up with Email', '#signup', { class: "email-link"} %>
-      <!-- </div> -->
-      <!-- <div class="row padded-large"> -->
-        <%#= link_to "Or Try Without Signing-Up", @is_guest ? offers_path : user_traits_path , class: "btn-special" %>
+        <%= link_to 'Or Sign up with Email', '#signup', { class: "email-link"} %>
+      </div>
+      <div class="row padded-large">
+        <%= link_to "Or Try Without Signing-Up", @is_guest ? offers_path : user_traits_path , class: "btn-special" %>
       </div>
     </div>
   </div>
