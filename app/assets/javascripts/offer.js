@@ -1,12 +1,13 @@
 $(document).ready(function(){
 // 1. Functionality to remove cards upon clicking dislike
-$(".remove").on("click",function(e){
-  $.ajax({
-    url: "",
-    context: document.body,
-    success: function(s,x){
-      $(this).html(s);
-    }
+  $(".remove").on("click",function(e){
+     e.preventDefault();
+    $.ajax({
+      url: "",
+      context: document.body,
+      success: function(s,x){
+        $(this).html(s);
+      }
   });
 });
 // 2. Adding card-menu on a card hover
@@ -62,6 +63,20 @@ $(document).on('click.card', '.card', function (e) {
         }
       }
     });
+
+    // 5. auto-removing the alert flashes
+    $(".alert").alert();
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 5000);
+
+    // 6. reload page on click
+    $('.reload').click(function() {
+    location.reload();
+    });
 });
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
+

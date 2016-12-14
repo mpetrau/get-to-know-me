@@ -15,7 +15,8 @@
          <%= link_to '<i class="fa fa-facebook"></i> Get Started with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
        </div>
        <div class="row padded-mini">
-        <%= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
+        <%#= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
+        <%= link_to 'Or Sign up with Email', '#signup', { class: "email-link"} %>
       </div>
       <div class="row padded-large">
         <%= link_to "Or Try Without Signing-Up", @is_guest ? offers_path : user_traits_path , class: "btn-special" %>
@@ -24,6 +25,12 @@
   </div>
 </div>
 </div>
+
+
+<div id="signup" class="modal">
+  <%= render 'devise/registrations/new-modal.html.erb' %>
+</div>
+
 
 <div class="container text-center padded">
   <div class="row">
@@ -72,7 +79,8 @@
       </div>
     </div>
     <div class="row padded-small">
-      <%= link_to "Get Started Today", new_user_registration_path, {class: "btn btn-special-large"} %>
+      <%#= link_to "Get Started Today", new_user_registration_path, {class: "btn btn-special-large"} %>
+      <%= link_to 'Get Started Today', '#signup', { class: "btn btn-special-large"} %>
     </div>
   </div>
 </div>
