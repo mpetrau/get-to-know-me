@@ -13,6 +13,25 @@
     </div>
     <div class="col-xs-12 col-sm-8 col-sm-offset-1 profile-info">
       <div class="row">
+        <div class="col-xs-12 traits-text">
+          <h3>my traits:</h3>
+          <ul>
+            <% @traits.each do |trait| %>
+              <li>
+                <%= trait.trait.name.upcase %>
+                <%= link_to profile_del_trait_path(@user,trait.id) , method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to "Change your traits", user_traits_path, class: "btn btn-primary" %>
+        </div>
+        <div class="col-xs-12 accounts-link">
+          <h3>my linked accounts:</h3>
+          <%= link_to "FACEBOOK", user_traits_path %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </div>
         <div class="col-xs-12">
           <h3>my saved offers:</h3>
           <ul>
@@ -29,24 +48,16 @@
           <% end %>
           </ul>
         </div>
-        <div class="col-xs-12 traits-text">
-          <h3>my traits:</h3>
+        <div class="col-xs-12">
+          <h3>already bought:</h3>
           <ul>
-            <% @traits.each do |trait| %>
+            <% @user.offers.where( :bought? => true ).each do |offer| %>
               <li>
-                <%= trait.trait.name.upcase %>
-                <%= link_to profile_del_trait_path(@user,trait.id) , method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                <% end %>
+                <%= image_tag offer.deal.photo, class:"deal-photo" %>
+                <%= offer.deal.name %>
               </li>
             <% end %>
           </ul>
-          <%= link_to "Change your traits", user_traits_path, class: "btn btn-primary" %>
-        </div>
-        <div class="col-xs-12 accounts-link">
-          <h3>my linked accounts</h3>
-          <%= link_to "FACEBOOK", user_traits_path %>
-          <i class="fa fa-trash" aria-hidden="true"></i>
         </div>
       </div>
     </div>
