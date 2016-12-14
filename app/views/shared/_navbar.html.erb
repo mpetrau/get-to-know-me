@@ -41,9 +41,12 @@
 
   <!-- Login text link -->
   <div class="login-call">
-    <%= link_to 'Login', '#login', { class: "home-link"} %>
+  <div class="ul list-inline">
+    <li><%= link_to 'Login', '#login', { class: "home-link"} %></li>
+    <li>or</li>
+    <li><%= link_to 'Sign Up', '#signup', { class: "home-link"} %></li>
+  </div>
   </div>
   <% end %>
-
 </div>
 
