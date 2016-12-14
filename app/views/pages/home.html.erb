@@ -18,6 +18,9 @@
         <%#= link_to "Or Sign up with Email", new_user_registration_path, {class: "email-link"} %>
         <%= link_to 'Or Sign up with Email', '#signup', { class: "email-link"} %>
       </div>
+      <div class="row padded-large">
+        <%= link_to "Or Try Without Signing-Up", @is_guest ? offers_path : user_traits_path , class: "btn-special" %>
+      </div>
     </div>
   </div>
 </div>

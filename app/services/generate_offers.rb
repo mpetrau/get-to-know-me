@@ -1,10 +1,17 @@
 class GenerateOffers
-  def self.generate_user_offers(current_user)
-    @current_user = current_user
+  def self.generate_member_offers(user)
+    @current_user = user
     if @current_user.offers.length == 0
       create_user_offers
     else
       update_user_offers
+    end
+  end
+
+  def self.generate_guest_offers(user)
+    @current_user = user
+    if @current_user.offers.length == 0
+      create_user_offers(scope: true)
     end
   end
 
@@ -19,8 +26,9 @@ class GenerateOffers
 
   private
 
-  def self.create_user_offers
-    Deal.all.each { |deal| Offer.create(user: @current_user, deal: deal, score: Offer::score(@current_user, deal)) }
+  def self.create_user_offers(options = {})
+    deals = options[:scope] ? Deal.first(10) : Deal.all
+    deals.each { |deal| Offer.create(user: @current_user, deal: deal, score: Offer::score(@current_user, deal)) }
   end
 
   def self.update_user_offers

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     delete "delete/:id_trait" , to: "user_traits#destroy", as: "del_trait"
   end
 
+  # get :hellobug, to: 'pages#hellobug'
+
 
 
 end

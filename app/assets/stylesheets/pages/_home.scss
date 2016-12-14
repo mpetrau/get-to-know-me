@@ -13,6 +13,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  .btn-special{
+    background: transparent;
+    text-decoration: none;
+  }
 }
 
 .wrapper-how-works {
