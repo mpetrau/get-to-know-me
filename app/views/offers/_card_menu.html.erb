@@ -1,13 +1,13 @@
   <div>
     <ul class="list-inline">
       <% if offer.liked? == true %>
-        <li><i class='fa fa-heart selected' aria-hidden='true'></i></li>
-        <li><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#", class: " small-tooltip reload", title: "share"%></li>
-        <li><%= link_to '<i class="fa fa-thumbs-down" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch, class: " small-tooltip reload", title: "remove" %></li>
+        <li><%= link_to "<i class='fa fa-heart selected' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => false ), method: :patch, class: " small-tooltip", id: "reload", title: "like"%></li>
+        <li><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#", class: " small-tooltip", title: "share"%></li>
+        <li><%= link_to '<i class="fa fa-thumbs-down" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch, class: " small-tooltip", title: "remove" %></li>
       <% else %>
-        <li><%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch, class: " small-tooltip reload", title: "like"%></li>
-        <li><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#", class: " small-tooltip reload", title: "share"%></li>
-        <li><%= link_to '<i class="fa fa-thumbs-down" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch, class: " small-tooltip reload", title: "remove" %></li>
+        <li><%= link_to "<i class='fa fa-heart' aria-hidden='true'></i>".html_safe, offer_path(offer, :liked? => true ), method: :patch, class: " small-tooltip", id: "reload", title: "like"%></li>
+        <li><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#", class: " small-tooltip", title: "share"%></li>
+        <li><%= link_to '<i class="fa fa-thumbs-down" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch, class: " small-tooltip", title: "remove" %></li>
       <% end %>
     </ul>
   </div>
