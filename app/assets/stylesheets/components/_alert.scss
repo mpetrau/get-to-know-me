@@ -4,14 +4,17 @@
 
 .alert {
   margin: 0;
+  position: absolute;
+  top: 0px; 
+  left: 0px; 
+  width: 100%;
   text-align: center;
-  color: white;
+  color: $secondary-color;
+  border: none;
 }
 .alert-info {
-  background: $success-color;
-  opacity: 0.8;
+  background: transparent;
 }
 .alert-warning {
-  background: $error-color;
-  opacity: 0.8;
+  background: transparent;
 }
