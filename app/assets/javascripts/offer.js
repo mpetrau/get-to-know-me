@@ -21,7 +21,7 @@ $( ".card" ).hover(
 // 3. On a card deal button, go to the deal website and flip Feedback view
 $( ".btn-2see-deal" ).on('click', function() {
   // on either selector, reset the starting traversing element to "card-image"
-    var card_side = $(this).closest(".card-reveal");
+  var card_side = $(this).closest(".card-reveal");
   // start traversal and execute function
   if ($(card_side).siblings('.feedback.hidden').length){
     $(card_side).siblings(".feedback" ).removeClass( "hidden" );
@@ -38,9 +38,9 @@ $( ".btn-2see-deal" ).on('click', function() {
       $(card_side).siblings(".card-content" ).children().addBack().removeClass('activator');
       return false;
     }
-      else
-        $(card_side).siblings(".feedback").addClass( "hidden" );
-    });
+    else
+      $(card_side).siblings(".feedback").addClass( "hidden" );
+  });
 
 // 4. To enable card 'flip' from multiple areas
 $(document).on('click.card', '.card', function (e) {
@@ -62,9 +62,9 @@ $(document).on('click.card', '.card', function (e) {
     // 5. auto-removing the alert flashes
     $(".alert").alert();
     window.setTimeout(function() {
-        $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();
-        });
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+      });
     }, 5000);
 
     // 6. on card menu functions, execute the steps without reloading the page.
@@ -90,17 +90,49 @@ $(document).on('click.card', '.card', function (e) {
             console.log(jqXHR.responseText);
             Materialize.toast("Try again..."+ jqXHR.responseText, 4000);
           }
-          });
-    });
+        });
+      });
 
     // 6.1 on loading a page, inspect the Liked of all cards, and add related class
-        var likes = $(".card .offer-actions i[title='like']");
-        likes.each(function(){
+    var likes = $(".card .offer-actions i[title='like']");
+    likes.each(function(){
         //$(this).closest(".btn").append("I'm active")
-          if ($(this).attr('data').slice(-4) == "true"){
-            $(this).addClass('selected');
-          };
-        });
+        if ($(this).attr('data').slice(-4) == "true"){
+          $(this).addClass('selected');
+        };
+      });
+
+    // 7. The behaviors on a traits page
+    // 7.1 for all boxes that are selected upon page load, apply CSS
+
+    var selected = $("#new_user_trait input[type=checkbox]:checked");
+    selected.each(function(){
+      $(this).closest(".btn").addClass('btn-active');
+    });
+
+// 7.2 upon clicking next, validate number of selections, and of less than 2, show alert message
+$("#send-traits").click(function(e) {
+  e.preventDefault();
+  if (validateLength()) { $("#new_user_trait").submit(); }
+});
+
+function validateLength()
+{
+  var selected = $("#new_user_trait input[type=checkbox]:checked");
+  if (selected.length < 2 ) {
+    $('.alert-warning').removeClass('hidden');
+  } else {
+    return true
+  }
+}
+
+// 7.3 on a Button click, toggle the class for active, and mark the form inputs correspondingly
+$("#new_user_trait .btn").click(function(e){
+  e.preventDefault();
+  $(this).toggleClass("btn-active");
+  var checkbox = $(this).find(':checkbox');
+  checkbox.attr('checked', !checkbox.attr('checked'));
+});
 });
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
