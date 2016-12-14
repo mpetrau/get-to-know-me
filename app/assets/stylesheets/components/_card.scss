@@ -99,7 +99,7 @@
 // 2.2 card menu settings for the reverse side
 
 .offer-actions-reverse {
-  padding: 0 10px 5px 10px;
+  padding: 0 10px 0px 10px;
   margin-top: -10px;
   display: flex;
   justify-content: space-between;
@@ -141,6 +141,10 @@
 // 3. Card reverse-side settings
 // 3.1 Table formatting
 
+.card .card-reveal {
+  padding: 10px;
+}
+
 .offer-text th, td{
   line-height: 18px;
   vertical-align: top;
@@ -154,7 +158,7 @@
 
 .offer-text td {
   margin-left: 10px;
-  padding: 10px 0px 10px 20px;
+  padding: 10px 0px 10px 4px;
   text-align: left;
 }
 
@@ -163,7 +167,7 @@
 .card .card-reveal .card-title{
   line-height: 20px;
   font-size:16px;
-  margin: 15px 0;
+  margin: 2px 0;
   text-align: center;
   cursor: default;
 }
@@ -171,20 +175,10 @@
 // 3.3 Card reverse action button
 .card-reveal .btn{
   font-size: 16px;
-  margin: 20px 0;
-  // position: fixed;
+  margin: auto;
+  position: fixed;
+  width: 92%;
 }
-
-//3.4 Card reverse flexbox
-// .container-flex {
-//   display: flex;
-// }
-
-// .item-btn {
-//   align-self: baseline;
-//   position: fixed;
-//   z-index: 1;
-// }
 
 // 4. Card feedback side settings
 // 4.1 Background picture effect settings
