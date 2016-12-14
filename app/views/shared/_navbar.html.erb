@@ -17,17 +17,17 @@
     <div class="fixed-action-btn horizontal">
       <%= image_tag current_user.facebook_picture_url.nil? ? "#{image_path 'green-happy-face.png'}" : current_user.facebook_picture_url , class: "btn-floating btn-large" %>
       <ul>
-        <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "<%= t('.profile', default: 'Favorites') %>" >
+        <li class= "tooltipped" data-position = "top" data-delay = "50" data-tooltip = "<%= t('.profile', default: 'Favorites') %>" >
           <%= link_to favorites_path, class: "btn-floating waves-effect waves-light" do %>
           <i class="fa fa-heart"></i>%>
           <% end %>
         </li>
-        <li class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
+        <li class= "tooltipped" data-position = "top" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
           <%= link_to profile_path(:id), class: "btn-floating"  do %>
           <i class="fa fa-user"></i>
           <% end %>
         </li>
-        <li  class= "tooltipped" data-position = "bottom" data-delay = "50" data-tooltip = "  <%= t(".sign_out", default: "Log out") %>" >
+        <li  class= "tooltipped" data-position = "top" data-delay = "50" data-tooltip = "  <%= t(".sign_out", default: "Log out") %>" >
           <%= link_to destroy_user_session_path, method: :delete, class: "btn-floating" do %>
           <i class="fa fa-sign-out"></i>
           <% end %>

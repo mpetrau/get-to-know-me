@@ -33,8 +33,8 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color:  #c6ff00 !default; //lime color
-$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color: darken(#c6ff00, 5%) !default; //lime color
+$primary-color-light: lighten($primary-color, 20%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: #b0bec5 !default; //blue grey
