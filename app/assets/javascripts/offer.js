@@ -1,4 +1,4 @@
-$(document).ready(function(){
+document.addEventListener("turbolinks:load", function() {
 // 1. Functionality to remove cards upon clicking dislike
 //   $(".remove").on("click",function(e){
 //      e.preventDefault();
