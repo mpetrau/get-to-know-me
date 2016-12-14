@@ -28,6 +28,7 @@ class OffersController < ApplicationController
 
   def favorites
     @offers= Offer.where(user: current_user, disliked?: false, liked?: true).sort{ |a,b| b.score <=> a.score }
+    @empty = @offers.empty?
   end
 
   def edit
