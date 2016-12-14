@@ -248,3 +248,13 @@
   }
 }
 
+// 5 Card that shows you ran out of offers
+.notification{
+  .card-content {
+    border-top: none;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 0px;
+    height: 100%;
+  }
+}
