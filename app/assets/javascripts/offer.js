@@ -1,15 +1,15 @@
 $(document).ready(function(){
 // 1. Functionality to remove cards upon clicking dislike
-  $(".remove").on("click",function(e){
-     e.preventDefault();
-    $.ajax({
-      url: "",
-      context: document.body,
-      success: function(s,x){
-        $(this).html(s);
-      }
-  });
-});
+//   $(".remove").on("click",function(e){
+//      e.preventDefault();
+//     $.ajax({
+//       url: "",
+//       context: document.body,
+//       success: function(s,x){
+//         $(this).html(s);
+//       }
+//   });
+// });
 // 2. Adding card-menu on a card hover
 $( ".card" ).hover(
   function() {
@@ -67,9 +67,25 @@ $(document).on('click.card', '.card', function (e) {
         });
     }, 5000);
 
-    // 6. reload page on click
-    $('.reload').click(function() {
-    location.reload();
+    // 6. on card menu functions, execute the steps without reloading the page.
+    $(".offer-actions [title='like']").on('click', function() {
+        $.ajax({
+          url: $(this).attr('url'),
+          type: "PUT",
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Accept', 'application/json');
+          },
+          success: function() {
+            Materialize.toast("Got your choice!", 4000)
+            $(this).toggleClass('special')
+          },
+          error: function(jqXHR) {
+            // call error tooltip
+            console.log(jqXHR.responseText);
+            //$().addClass('error').html(jqXHR.responseText);
+          }
+          });
     });
 });
 // If .edit is hiden then open link in new tab and remove hidden.
