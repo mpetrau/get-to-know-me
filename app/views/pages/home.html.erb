@@ -1,8 +1,10 @@
+<%= render 'navbar' %>
 <div class="wrapper-picture" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path 'ski.jpg' %>);">
   <div class= "container">
     <div class= "row">
       <div class= "col-sm-12">
-        <h2>Discover the Best Deals & Discounts</h2>
+        <%= image_tag("logo.png", class: "logo-big") %>
+        <h2 class="margin-less">Discover the Best Deals & Discounts</h2>
         <h5 class="padded-mini">Scout sniffs out the best deals and delivers the top 6 to you daily</h5>
    <!--      <h2><%#= t('home.heading') %></h2>
         <h3><%#= t('home.tagline') %></h3>
@@ -13,10 +15,12 @@
         </ul> -->
         <div class="row padded-small">
 
-            <%= link_to '<i class="fa fa-facebook"></i> Get Started with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
+            <%= link_to '<i class="fa fa-facebook"></i> Sign in with Facebook'.html_safe, user_facebook_omniauth_authorize_path, {class: 'btn-facebook'} %>
        </div>
        <div class="row padded-mini">
-        <%= link_to "Or Skip Login", @is_guest ? offers_path : user_traits_path , class: "email-link" %>
+        <%= link_to(@is_guest ? offers_path : user_traits_path , class: "email-link") do %>
+          OR GET STARTED NOW <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+        <% end %>
         <%#= link_to 'Or Sign up with Email', '#signup', { class: "email-link"} %>
       </div>
       <!-- <div class="row padded-large"> -->

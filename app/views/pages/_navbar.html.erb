@@ -1,16 +1,6 @@
 <div class="navbar">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-brand" do %>
-  <%= image_tag "logo.png" %>
-  <% end %>
-
-  <!-- Search form -->
-<!--     <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form> -->
+  <%= link_to "SCOUT", root_path, class: "navbar-brand brand-name" %>
 
     <% if user_signed_in? %>
 
@@ -35,6 +25,7 @@
       </ul>
     </div>
 
+  </div>
 
   <% else %>
 
@@ -46,5 +37,4 @@
   </div>
   </div>
   <% end %>
-  </div>
-
+</div>
