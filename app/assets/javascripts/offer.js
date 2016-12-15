@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
-// 1. Added spinners for actions
-
+// 1. Added splicenners for actions
+$('.parallax').parallax();
 // 2. Adding card-menu on a card hover
 $( ".card" ).hover(
   function() {
@@ -73,13 +73,13 @@ $(document).on('click.card', '.card', function (e) {
           // on success function, toggle the class and run a toast
           success: function() {
             $(this).toggleClass('selected');
-            Materialize.toast("Got your choice!", 4000);
+            Materialize.toast("Got it", 4000);
 
           },
           // on a failure, raise an issue
           error: function(jqXHR) {
             console.log(jqXHR.responseText);
-            Materialize.toast("Try again..."+ jqXHR.responseText, 4000);
+            Materialize.toast(jqXHR.responseText, 4000);
           }
         });
       });
