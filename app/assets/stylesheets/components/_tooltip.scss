@@ -29,3 +29,13 @@
   color: $primary-color-light;
 }
 }
+
+.my-toast{
+  background-color: white;
+  color: $secondary-color;
+}
+
+.my-toast-fail{
+  background-color: white;
+  color: $red;
+}
