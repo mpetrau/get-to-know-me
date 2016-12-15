@@ -100,7 +100,7 @@
 
 .offer-actions-reverse {
   padding: 0 10px 0px 10px;
-  margin-top: -10px;
+  margin-top: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,6 +154,8 @@
 .offer-text th {
   text-align: right;
   padding: 5px 0;
+  color: #444444;
+  font-size: 87%;
 }
 
 .offer-text td {

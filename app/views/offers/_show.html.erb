@@ -1,7 +1,7 @@
 <div class="offer-actions-reverse">
   <%= render partial: 'card_menu', locals: { offer: offer } %>
 </div>
-<span class="card-title grey-text text-darken-4"> <%= offer.deal.name %></span>
+<span class="card-title grey-text text-darken-4 padded-top-small"> <%= offer.deal.name %></span>
 <table class="offer-text">
   <tr>
     <th class='deactivator'><%= t('cardreverse.price') %></th>
@@ -23,4 +23,7 @@
     <td class='deactivator'><%= offer.score %></td>
   </tr>
 </table>
-<%= link_to "see deal", offer.deal.url, class: "btn btn-active btn-2see-deal", target: "_blank" %>
+<div class="span text-center">
+  <%= link_to "see deal", offer.deal.url, class: "btn btn-fixed btn-2see-deal", target: "_blank" %>
+</div>
+
