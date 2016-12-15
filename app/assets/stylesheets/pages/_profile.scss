@@ -15,6 +15,11 @@ h3 {
   color: $secondary-color;
   padding: 8px 12px;
   font-weight: normal;
+  display: inline-block;
+}
+
+.font-smaller {
+  font-size: 13px;
 }
 
 .btn-change-traits {

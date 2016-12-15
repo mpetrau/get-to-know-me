@@ -26,10 +26,10 @@
 }
 
 .home-link {
-  color: white;
+  color: $secondary-color-dark;
   &:hover {
     text-decoration: none;
-    color: white;
+    color: $secondary-color-darker;
     opacity: 0.8;
   }
 }
