@@ -73,13 +73,13 @@ $(document).on('click.card', '.card', function (e) {
           // on success function, toggle the class and run a toast
           success: function() {
             $(this).toggleClass('selected');
-            Materialize.toast("Got it", 4000);
+            Materialize.toast("Got it", 4000, "my-toast");
 
           },
           // on a failure, raise an issue
           error: function(jqXHR) {
             console.log(jqXHR.responseText);
-            Materialize.toast(jqXHR.responseText, 4000);
+            Materialize.toast("Sign up to use", 4000, "my-toast");
           }
         });
       });

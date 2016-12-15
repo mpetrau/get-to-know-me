@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar", id="home-nav">
   <!-- Logo -->
   <%= link_to "SCOUT", root_path, class: "navbar-brand brand-name" %>
 
@@ -9,7 +9,7 @@
       <ul>
         <li class= "tooltipped" data-position = "top" data-delay = "50" data-tooltip = "<%= t('.profile', default: 'Favorites') %>" >
           <%= link_to favorites_path, class: "btn-floating waves-effect waves-light" do %>
-          <i class="fa fa-heart"></i>%>
+          <i class="fa fa-heart"></i>
           <% end %>
         </li>
         <li class= "tooltipped" data-position = "top" data-delay = "50" data-tooltip = " <%= t(".profile", default: "Profile") %>" >
@@ -24,8 +24,6 @@
         </li>
       </ul>
     </div>
-
-  </div>
 
   <% else %>
 
