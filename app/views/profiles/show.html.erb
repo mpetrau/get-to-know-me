@@ -7,7 +7,7 @@
       <% if @user.first_name != nil %>
        <h3><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></h3>
       <% else %>
-        <p><%= @user.email %></p>
+        <p class="font-smaller"><%= @user.email %></p>
       <% end %>
       </div>
       <% if @user.first_name != nil %>
