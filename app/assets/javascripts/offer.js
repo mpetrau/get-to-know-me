@@ -59,7 +59,7 @@ $(document).on('click.card', '.card', function (e) {
     }, 5000);
 
     // 6. on card menu functions, execute the steps without reloading the page.
-    $(".offer-actions [title='like']").on('click', function(e) {
+    $(".offer-actions [title='like'].ajax-like").on('click', function(e) {
         // on clicking the Like button, run Ajax to update the Offer
         $.ajax({
           url: $(this).attr('data'),
