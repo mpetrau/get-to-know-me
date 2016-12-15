@@ -4,15 +4,16 @@
 }
 
 .btn-special{
-  color: $secondary-color;
-  background-color: white;
+  color: $primary-color;
+  background-color: transparent;
   font-weight: lighter;
   border: none;
   font-size: 40px;
   padding: 5px;
   text-transform: uppercase;
+  transition: all .2s ease-in-out;
   &:hover{
-    color: $primary-color;
+    transform: scale(1.2, 1.1);
   }
 }
 

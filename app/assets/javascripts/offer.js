@@ -1,15 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
-// 1. Functionality to remove cards upon clicking dislike
-//   $(".remove").on("click",function(e){
-//      e.preventDefault();
-//     $.ajax({
-//       url: "",
-//       context: document.body,
-//       success: function(s,x){
-//         $(this).html(s);
-//       }
-//   });
-// });
+// 1. Added spinners for actions
+
 // 2. Adding card-menu on a card hover
 $( ".card" ).hover(
   function() {

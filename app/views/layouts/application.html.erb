@@ -34,10 +34,12 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
+<div class="content">
   <%= render 'shared/navbar' unless @disable_nav %>
   <%= render 'shared/login-modals' %>
   <%= render 'shared/flashes' %>
   <%= yield %>
+</div>
   <%= render 'shared/footer' %>
 </body>
 </html>
