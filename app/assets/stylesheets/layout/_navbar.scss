@@ -15,6 +15,18 @@ right: 50px;
 top: 50px;
 }
 
+.brand-name {
+  position:absolute;
+  left: 40px;
+  top: 40px;
+  font-size: 30px;
+  max-width: 100px;
+  color: white;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
 .navbar-brand img {
   position:absolute;
   left: 40px;

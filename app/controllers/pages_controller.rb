@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     # @displayable_nav = true
+    @disable_nav = true
     @is_guest = session[:guest_user_id].present?
   end
 

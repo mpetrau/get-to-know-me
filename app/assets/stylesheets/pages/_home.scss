@@ -35,11 +35,21 @@
 }
 
 .email-link {
-  color: $secondary-color;
-      font-size: 14px;
+  color: white;
+  font-size: 24px;
+  font-weight: normal;
   &:hover {
     text-decoration: none;
-    color: $secondary-color;
     opacity: 0.8;
+    color: $primary-color;
   }
+}
+
+.logo-big {
+  height: 180px;
+  width: auto;
+}
+
+.margin-less {
+  margin-top: 0px;
 }
