@@ -1,1 +1,16 @@
 // Your footer style
+#footer{
+  padding-top: 15px;
+  color: $secondary-color-darker;
+  border-top: 1px solid $secondary-color-lighter;
+  a{
+    color: $secondary-color-darker;
+    text-decoration: none;
+    &:hover{
+      color: $primary-color;
+    }
+  }
+  .C {
+    text-align: right;
+  }
+}
