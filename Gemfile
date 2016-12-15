@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem 'materialize-sass'
+gem 'turbolinks', '~> 5.0.0'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'binding_of_caller'

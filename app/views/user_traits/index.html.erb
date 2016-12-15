@@ -5,51 +5,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h4 class="page-header">what gets you going, buddy?</h4>
+        <h4 class="page-header">What gets you going, buddy?
+          <p>We will use this information to personalize our suggestions for you</p>
+        </h4>
         <%= render 'shared/traits_form' %>
       </div>
     </div>
   </div>
 </div>
-
-<%= content_for(:after_js) do %>
-<%= javascript_tag do %>
-
-$(document).ready(function() {
-
-// for all boxes that are selected upon page load, apply CSS
-var selected = $("#new_user_trait input[type=checkbox]:checked");
-selected.each(function(){
-//$(this).closest(".btn").append("I'm active")
-$(this).closest(".btn").addClass('btn-active');
-//$(this).closest(".btn").mouseout();
-});
-
-// upon clicking next, validate number of selections, and of less than 2, show alert message
-$("#send-traits").click(function(e) {
-e.preventDefault();
-if (validateLength()) { $("#new_user_trait").submit(); }
-});
-
-function validateLength()
-{
-  var selected = $("#new_user_trait input[type=checkbox]:checked");
-  if (selected.length < 2 ) {
-  $('.alert-warning').removeClass('hidden');
-} else {
-return true
-}
-}
-
-// on a Button click, toggle the class for active, and mark the form inputs correspondingly
-$(".btn").click(function(e){
-e.preventDefault();
-$(this).toggleClass("btn-active");
-var checkbox = $(this).find(':checkbox');
-checkbox.attr('checked', !checkbox.attr('checked'));
-});
-
-});
-
-<% end %>
-<% end %>

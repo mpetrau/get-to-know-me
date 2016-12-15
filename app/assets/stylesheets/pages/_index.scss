@@ -7,14 +7,20 @@
 // 1. Standard reusable page header
 
 .page-header{
-  color: $secondary-color;
+  color: $secondary-color-darker;
   padding: 20px;
   margin-bottom: 20px;
+  border-bottom: 1px solid $secondary-color-lighter;
 }
 
 // 2. Required for creating a footer
 html, body {
   height: 100%;
+}
+
+
+body {
+  background-color: #fafafa !important;
 }
 
 .content {
@@ -23,11 +29,12 @@ html, body {
 
 // 3. element to center all page information in the center (vertical + horizontal)
 .center-flex {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-content: center;
 }
 
 // 3.1 for smaller screens, readding margin on top so that Nav bottons do not overlay cards
