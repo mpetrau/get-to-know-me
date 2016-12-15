@@ -40,9 +40,9 @@
   color: white;
   border-radius: 5px;
   &:hover{
-      opacity: 0.9;
-  color: white;
-  text-decoration: none;
+    opacity: 0.9;
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -59,8 +59,22 @@
   color: white;
   border-radius: 5px;
   &:hover{
-      opacity: 0.9;
+    opacity: 0.9;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-fixed {
+  background-color: $primary-color;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  max-width: 235px;
   color: white;
-  text-decoration: none;
+  &:hover{
+    color: white;
+    opacity: 0.8;
   }
 }
