@@ -2,6 +2,7 @@ class UserTraitsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @traits = Trait.all
+    @traits = Trait.first(7) unless user_signed_in?
     @user_trait = UserTrait.new
     @user = current_or_guest_user
     if @user.user_type == "guest" && @user.offers.length > 0

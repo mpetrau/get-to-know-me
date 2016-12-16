@@ -35,7 +35,6 @@ trait3 = Trait.create(name: "family-oriented")
 trait4 = Trait.create(name: "team-sports lover")
 trait5 = Trait.create(name: "gym bunny")
 trait6 = Trait.create(name: "jogger")
-
 trait8 = Trait.create(name: "health conscious")
 trait9 = Trait.create(name: "brands follower")
 trait10 = Trait.create(name: "gadget-lover")
