@@ -1,9 +1,9 @@
   <div>
     <ul class="list-inline">
       <% if current_user %>
-        <li><i class='fa fa-heart small-tooltip ajax-like' aria-hidden='true', title= "like", data="<%= offer_path(offer,liked?: offer.liked? ) %>"></i></li>
-        <li><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#", class: " small-tooltip", title: "share"%></li>
-        <li><%= link_to '<i class="fa fa-thumbs-down" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), method: :patch, class: " small-tooltip", title: "remove" %></li>
+        <li><%= link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, offer_path(offer, :liked?), remote: true, method: :patch, class: " small-tooltip", id: "like" %></li>
+        <li ><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#", class: " small-tooltip", title: "share"%></li>
+        <li><%= link_to '<i class="fa fa-thumbs-down" aria-hidden="true"></i>'.html_safe, offer_path(offer, :disliked? => true ), remote: true, method: :patch, class: " small-tooltip", id: "remove" %></li>
       <% else %>
         <li><%= link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, "#signup", class: " small-tooltip", title: "like"%></li>
         <li><%= link_to '<i class="fa fa-share-alt" aria-hidden="true"></i>'.html_safe, "#signup", class: " small-tooltip", title: "share"%></li>
