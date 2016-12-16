@@ -4,9 +4,9 @@ $('.parallax').parallax();
 // 2. Adding card-menu on a card hover
 $( ".card" ).hover(
   function() {
-    $(this).find(".offer-actions" ).removeClass( "hidden" );
+    $(this).find(".offer-actions" ).first().removeClass( "hidden" );
   }, function() {
-    $(this).find(".offer-actions" ).addClass( "hidden" );
+    $(this).find(".offer-actions" ).first().addClass( "hidden" );
   });
 
 // 3. On a card deal button, go to the deal website and flip Feedback view
@@ -61,11 +61,14 @@ $(document).on('click.card', '.card', function (e) {
     // // 6. on card menu functions, execute the steps without reloading the page.
     // $(".offer-actions [title='like'].ajax-like").on('click', function(e) {
         $(".card .offer-actions #like").on("ajax:success", function(e, data, status, xhr){
-            console.log(data);
-            console.log("--------------");
-            console.log(xhr);
             $(this).children().toggleClass('selected');
-            Materialize.toast("Got it", 4000, "my-toast");
+            if (data["liked?"] == true){
+              Materialize.toast("Scout added it to favs", 4000, "my-toast");
+            } else {
+              Materialize.toast("Removed from favorites", 4000, "my-toast");
+            }
+          });
+
 
 
     //     // on clicking the Like button, run Ajax to update the Offer
@@ -89,13 +92,13 @@ $(document).on('click.card', '.card', function (e) {
     //         Materialize.toast("Sign up to use", 4000, "my-toast");
     //       }
     //     });
-    });
 
     // 6.1 on loading a page, inspect the Liked of all cards, and add related class
     var likes = $(".card .offer-actions #like");
     likes.each(function(){
         //$(this).closest(".btn").append("I'm active")
-        if ($(this).attr('href').slice(-4) == "false"){
+        if ($(this).attr('href').slice(-4) == "true"){
+
           $(this).children().addClass('selected');
         };
       });
@@ -142,11 +145,10 @@ $('.card .offer-actions').on('ajax:beforeSend', function(event, xhr, settings) {
 
 
     $(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
-      console.log(data);
-      console.log("--------------");
-      console.log(xhr);
-      Materialize.toast("removed", 4000, "my-toast");
       Turbolinks.visit("/offers", { change: ['offers'] });
+      $(document).on('turbolinks:load',['offers'] ,function () {
+        Materialize.toast("It's gone. Next time Scout will now better", 4000, "my-toast");
+      })
     });
 
 

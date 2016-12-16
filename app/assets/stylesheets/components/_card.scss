@@ -99,38 +99,23 @@
 // 2.2 card menu settings for the reverse side
 
 .offer-actions-reverse {
+  position: relative;
   padding: 0 10px 0px 10px;
   margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2;
-  width: 100%;
+  margin-bottom: 0px;
+  background-image: none;
   border-bottom: 1px solid rgba(160,160,160,.2);
   a{
-    margin: 0 10px;
     color: $secondary-color;
-    font-size: 20px;
-    &:hover {
-      color: $primary-color;
-    }
   }
   i{
-  color: white;
   color: $secondary-color;
-  font-size: 20px;
-  cursor: pointer;
     &:hover {
       color: $primary-color;
     }
   }
   .fa.activator{
     visibility: hidden;
-  }
-
-  li {
-    padding-left: 15px;
-    position:relative;
   }
 }
 
