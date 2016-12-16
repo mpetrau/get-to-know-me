@@ -187,7 +187,7 @@
 
 .subdue{
   filter: grayscale(0.8);
-  filter: opacity(0.2);
+  filter: opacity(0.1);
   position:relative;
 }
 
@@ -227,25 +227,11 @@
 // 4.3 Colors of icons
 
 .feedback-text{
-  .fa-money{
+  .fa {
     font-size: 6vh;
-    color: $success-color;
+    color: $secondary-color-dark;
     &:hover{
-      filter: brightness(75%);
-    }
-  }
-  .fa-heart{
-    font-size: 6vh;
-    color: $error-color;
-    &:hover{
-      filter: brightness(75%);
-    }
-  }
-  .fa-thumbs-down{
-    font-size: 6vh;
-    color: #17384c;
-    &:hover{
-      filter: brightness(75%);
+      color: $primary-color;
     }
   }
 }
