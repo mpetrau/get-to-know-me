@@ -61,7 +61,8 @@ $(document).on('click.card', '.card', function (e) {
     // // 6. on card menu functions, execute the steps without reloading the page.
     // $(".offer-actions [title='like'].ajax-like").on('click', function(e) {
         $(".card .offer-actions #like").on("ajax:success", function(e, data, status, xhr){
-            $(this).children().toggleClass('selected');
+            $(this).closest('.card').find('#like').children().toggleClass('selected');
+            $(this).closest('.card').children('.card-reveal').find('#like').children().toggleClass('selected');
             if (data["liked?"] == true){
               Materialize.toast("Scout added it to favs", 4000, "my-toast");
             } else {
@@ -97,7 +98,6 @@ $(document).on('click.card', '.card', function (e) {
     likes.each(function(){
         //$(this).closest(".btn").append("I'm active")
         if ($(this).attr('href').slice(-4) == "true"){
-
           $(this).children().addClass('selected');
         };
       });
