@@ -23,12 +23,14 @@
     transform: translate3d(0,0,0);
   }
 
-.offer-actions, .offer-actions-reverse{
+.offer-actions{
   .small-tooltip:hover:after{
   top: 80%;
   color: $primary-color-light;
 }
 }
+
+// Toast customizations
 
 .my-toast{
   background-color: white;

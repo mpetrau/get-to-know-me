@@ -4,9 +4,9 @@ $('.parallax').parallax();
 // 2. Adding card-menu on a card hover
 $( ".card" ).hover(
   function() {
-    $(this).find(".offer-actions" ).removeClass( "hidden" );
+    $(this).find(".offer-actions" ).first().removeClass( "hidden" );
   }, function() {
-    $(this).find(".offer-actions" ).addClass( "hidden" );
+    $(this).find(".offer-actions" ).first().addClass( "hidden" );
   });
 
 // 3. On a card deal button, go to the deal website and flip Feedback view
@@ -58,38 +58,47 @@ $(document).on('click.card', '.card', function (e) {
       });
     }, 5000);
 
-    // 6. on card menu functions, execute the steps without reloading the page.
-    $(".offer-actions [title='like'].ajax-like").on('click', function(e) {
-        // on clicking the Like button, run Ajax to update the Offer
-        $.ajax({
-          url: $(this).attr('data'),
-          type: "PUT",
-          context: this,
-          // set proper headers for JSON request and response
-          beforeSend: function(xhr){
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Accept', 'application/json');
-          },
-          // on success function, toggle the class and run a toast
-          success: function() {
-            $(this).toggleClass('selected');
-            Materialize.toast("Got it", 4000, "my-toast");
+    // // 6. on card menu functions, execute the steps without reloading the page.
+    // $(".offer-actions [title='like'].ajax-like").on('click', function(e) {
+        $(".card .offer-actions #like").on("ajax:success", function(e, data, status, xhr){
+            $(this).closest('.card').find('#like').children().toggleClass('selected');
+            $(this).closest('.card').children('.card-reveal').find('#like').children().toggleClass('selected');
+            if (data["liked?"] == true){
+              Materialize.toast("Scout added it to favs", 4000, "my-toast");
+            } else {
+              Materialize.toast("Removed from favorites", 4000, "my-toast");
+            }
+          });
+        //reload all cars but only on favourites view
 
-          },
-          // on a failure, raise an issue
-          error: function(jqXHR) {
-            console.log(jqXHR.responseText);
-            Materialize.toast("Sign up to use", 4000, "my-toast");
-          }
-        });
-      });
+    //     // on clicking the Like button, run Ajax to update the Offer
+    //     $.ajax({
+    //       url: $(this).attr('data'),
+    //       type: "PUT",
+    //       context: this,
+    //       // set proper headers for JSON request and response
+    //       beforeSend: function(xhr){
+    //         xhr.setRequestHeader('Content-Type', 'application/json');
+    //         xhr.setRequestHeader('Accept', 'application/json');
+    //       },
+    //       // on success function, toggle the class and run a toast
+    //       success: function() {
+
+
+    //       },
+    //       // on a failure, raise an issue
+    //       error: function(jqXHR) {
+    //         console.log(jqXHR.responseText);
+    //         Materialize.toast("Sign up to use", 4000, "my-toast");
+    //       }
+    //     });
 
     // 6.1 on loading a page, inspect the Liked of all cards, and add related class
-    var likes = $(".card .offer-actions i[title='like']");
+    var likes = $(".card .offer-actions #like");
     likes.each(function(){
         //$(this).closest(".btn").append("I'm active")
-        if ($(this).attr('data').slice(-4) == "true"){
-          $(this).addClass('selected');
+        if ($(this).attr('href').slice(-4) == "true"){
+          $(this).children().addClass('selected');
         };
       });
 
@@ -124,7 +133,46 @@ $("#new_user_trait .btn").click(function(e){
   var checkbox = $(this).find(':checkbox');
   checkbox.attr('checked', !checkbox.attr('checked'));
 });
+
+
+// 8 Adding Turbolinks to seemlessly refresh Cards pages on menu actions:
+// Set request headers to JSON (call it with 'setRequestHeader')
+$('.card .offer-actions').on('ajax:beforeSend', function(event, xhr, settings) {
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Accept', 'application/json');
 });
+
+
+
+    $(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
+      // still missing fallback scenarios and errors
+      Turbolinks.visit("/offers", { change: ['offers'] });
+      $(document).on('turbolinks:load',['offers'] ,function () {
+        Materialize.toast("It's gone. Next time Scout will now better", 4000, "my-toast");
+      })
+    });
+
+
+    // .on "ajax:error", (e, xhr, status, error) ->
+    // $("#new_article").append "<p>ERROR</p>"
+
+  });
+// document.on("click", "#link", function() {
+//     event.preventDefault();
+//     var xhr = event.data.xhr;
+//     xhr.setRequestHeader('Content-Type', 'application/json');
+//     xhr.setAcceptHeader('Accept', 'application/json');
+//     Turbolinks.visit("/offers", { change: ['offers'] });
+
+// });
+//     $(this).parent('form').submit()
+
+//     Turbolinks.visit("/offers", { change: ['offers'] });
+
+//     //To go back to previous (for testing -> for changed mind button)
+//     //window.history.back();
+
+//     turbolinks:before-visit event.data.url
 // If .edit is hiden then open link in new tab and remove hidden.
 // if .edit is not hidden then add class hiden
 

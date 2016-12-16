@@ -50,7 +50,7 @@ class OffersController < ApplicationController
         render json: @offer.attributes.to_json
       end
       format.html do
-        redirect_to(:back)
+        # redirect_to(:back)
       end
     end
 
