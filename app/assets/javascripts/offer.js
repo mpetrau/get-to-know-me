@@ -68,8 +68,7 @@ $(document).on('click.card', '.card', function (e) {
               Materialize.toast("Removed from favorites", 4000, "my-toast");
             }
           });
-
-
+        //reload all cars but only on favourites view
 
     //     // on clicking the Like button, run Ajax to update the Offer
     //     $.ajax({
@@ -144,7 +143,9 @@ $('.card .offer-actions').on('ajax:beforeSend', function(event, xhr, settings) {
 });
 
 
+
     $(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
+      // still missing fallback scenarios and errors
       Turbolinks.visit("/offers", { change: ['offers'] });
       $(document).on('turbolinks:load',['offers'] ,function () {
         Materialize.toast("It's gone. Next time Scout will now better", 4000, "my-toast");
