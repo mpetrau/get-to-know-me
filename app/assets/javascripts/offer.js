@@ -180,11 +180,7 @@ $('.card .offer-actions').on('ajax:beforeSend', function(event, xhr, settings) {
 $(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
       // still missing fallback scenarios and errors
 
-      // $(document).on('turbolinks:load','#deals' ,function () {
-      //   if ($('.toast').length > 0) {
-      //     $('.toast').remove();
-      //   };
-      console.log(xhr);
+
       Materialize.toast("It's gone. Next time Scout will know better", 4000, "my-toast");
       // });
     });
