@@ -22,12 +22,13 @@ class OffersController < ApplicationController
       @is_incomplete_offers = @offers.length < 6
     else # for Guest users, pick up top 5 offers (always static)
       @offers = Offer.where(user: @user).sort{ |a,b| b.score <=> a.score }.first(5)
+      flash.discard
     end
 
   end
 
   def favorites
-    @offers= Offer.where(user: current_user, disliked?: false, liked?: true).sort{ |a,b| b.score <=> a.score }
+    @offers= Offer.where(user: current_user, disliked?: false, saved?: true).sort{ |a,b| b.score <=> a.score }
     @empty = @offers.empty?
   end
 
@@ -39,6 +40,8 @@ class OffersController < ApplicationController
     @offer= Offer.find(params[:id])
     if params[:bought?]
       @offer.toggle!(:bought?)
+    elsif params[:saved?]
+      @offer.toggle!(:saved?)
     elsif params[:liked?]
       @offer.toggle!(:liked?)
     elsif params[:disliked?]

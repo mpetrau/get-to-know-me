@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215172148) do
+ActiveRecord::Schema.define(version: 20161218074341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20161215172148) do
     t.datetime "updated_at",                 null: false
     t.float    "score",      default: 0.0
     t.string   "provider",   default: ""
+    t.boolean  "saved?",     default: false
     t.index ["deal_id"], name: "index_offers_on_deal_id", using: :btree
     t.index ["user_id"], name: "index_offers_on_user_id", using: :btree
   end
@@ -94,7 +95,7 @@ ActiveRecord::Schema.define(version: 20161215172148) do
     t.datetime "token_expiry"
     t.string   "user_type",              default: "member"
     t.string   "provider"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["email", "user_type"], name: "index_users_on_email_and_user_type", unique: true, where: "((user_type)::text <> 'guest'::text)", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

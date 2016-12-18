@@ -60,15 +60,48 @@ $(document).on('click.card', '.card', function (e) {
 
     // // 6. on card menu functions, execute the steps without reloading the page.
     // $(".offer-actions [title='like'].ajax-like").on('click', function(e) {
-        $(".card .offer-actions #like").on("ajax:success", function(e, data, status, xhr){
-            $(this).closest('.card').find('#like').children().toggleClass('selected');
-            $(this).closest('.card').children('.card-reveal').find('#like').children().toggleClass('selected');
-            if (data["liked?"] == true){
-              Materialize.toast("Scout added it to favs", 4000, "my-toast");
-            } else {
-              Materialize.toast("Removed from favorites", 4000, "my-toast");
-            }
-          });
+      $(".card .offer-actions #save").on("ajax:success", function(e, data, status, xhr){
+        $(this).closest('.card').find('#save').children().toggleClass('selected')
+        if (data["saved?"] == true){
+          Materialize.toast("Scout added it to favs", 4000, "my-toast");
+        } else {
+          Materialize.toast("Removed from favorites", 4000, "my-toast");
+        }
+      });
+
+      $(".card .feedback #liked").on("ajax:success", function(e, data, status, xhr){
+        $(this).children().toggleClass('selected')
+        if (data["liked?"] == true){
+          Materialize.toast("Thanks for feedback - glad you liked!", 4000, "my-toast");
+          $(this).closest('.card').find('#bought').children().removeClass('selected');
+          $(this).closest('.card').find('#disliked').children().removeClass('selected');
+        } else {
+          Materialize.toast("Removed from favorites", 4000, "my-toast");
+        }
+      });
+
+      $(".card .feedback #disliked").on("ajax:success", function(e, data, status, xhr){
+        $(this).children().toggleClass('selected')
+        if (data["disliked?"] == true){
+          Materialize.toast("The deal will be removed. We'll do better next time!", 4000, "my-toast");
+          $(this).closest('.card').find('#bought').children().removeClass('selected');
+          $(this).closest('.card').find('#liked').children().removeClass('selected');
+        } else {
+          Materialize.toast("Changed your mind? Good to hear it.", 4000, "my-toast");
+        }
+      });
+
+      $(".card .feedback #bought").on("ajax:success", function(e, data, status, xhr){
+        $(this).children().toggleClass('selected')
+        if (data["bought?"] == true){
+          Materialize.toast("Congrats on your new purchase!", 4000, "my-toast");
+          $(this).closest('.card').find('#liked').children().removeClass('selected');
+          $(this).closest('.card').find('#disliked').children().removeClass('selected');
+        } else {
+          Materialize.toast("Didn't buy it? Let me know what you thought", 4000, "my-toast");
+        }
+      });
+
         //reload all cars but only on favourites view
 
     //     // on clicking the Like button, run Ajax to update the Offer
@@ -94,7 +127,7 @@ $(document).on('click.card', '.card', function (e) {
     //     });
 
     // 6.1 on loading a page, inspect the Liked of all cards, and add related class
-    var likes = $(".card .offer-actions #like");
+    var likes = $(".card .offer-actions #save");
     likes.each(function(){
         //$(this).closest(".btn").append("I'm active")
         if ($(this).attr('href').slice(-4) == "true"){
@@ -138,25 +171,59 @@ $("#new_user_trait .btn").click(function(e){
 // 8 Adding Turbolinks to seemlessly refresh Cards pages on menu actions:
 // Set request headers to JSON (call it with 'setRequestHeader')
 $('.card .offer-actions').on('ajax:beforeSend', function(event, xhr, settings) {
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Accept', 'application/json');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Accept', 'application/json');
 });
 
 
 
-    $(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
+$(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
       // still missing fallback scenarios and errors
-      Turbolinks.visit("/offers", { change: ['offers'] });
-      $(document).on('turbolinks:load',['offers'] ,function () {
-        Materialize.toast("It's gone. Next time Scout will now better", 4000, "my-toast");
-      })
+
+      // $(document).on('turbolinks:load','#deals' ,function () {
+      //   if ($('.toast').length > 0) {
+      //     $('.toast').remove();
+      //   };
+      console.log(xhr);
+      Materialize.toast("It's gone. Next time Scout will know better", 4000, "my-toast");
+      // });
     });
+
+});
+
+//my pseudo code to remove the cards
+
+// $('#remove').on("ajax:success", function(){
+//   this.data.append().attr('removed');
+//   limitoffersonshow();
+//   Materialize.toast('removed');
+// });
+
+
+// document.on("before:load", "offers #offers" function(){
+//   limitoffersonshow
+// });
+
+
+// function limitoffersonshow {
+//   var eligible_cards = $('.card').where(data != 'removed')
+//   if eligible_cards.length > 6 {
+//     $('.card').offset(6).remove()
+//   } else {
+//     .append(limited_card_template)
+//   }
+
+// }
+
+// limit card template {
+//   the cope of my 'run out of offers' card
+// }
+
 
 
     // .on "ajax:error", (e, xhr, status, error) ->
     // $("#new_article").append "<p>ERROR</p>"
 
-  });
 // document.on("click", "#link", function() {
 //     event.preventDefault();
 //     var xhr = event.data.xhr;
