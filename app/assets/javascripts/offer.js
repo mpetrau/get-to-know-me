@@ -214,7 +214,7 @@ function limitOffersOnShow() {
 }
 
 function loadLimitedCard() {
-  if ($("#for_signup").length == 0) {
+  if ($("#for_signup").length == 0 && $("#favorites").length == 0 ) {
   var limited_card_template = '<div class="col-xs-12 col-sm-6 col-md-4"><div class="card small notification" id="last_card"><div class="card-content dark-card"><span class="card-title"> No more matched deals for now. Check-in a bit later for new deals! </span></div></div></div>';
   $('#offers').append(limited_card_template);
   };
