@@ -4,7 +4,7 @@
     <% unless current_user %>
 
     <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class ="card small notification">
+    <div class ="card small notification" id="for_signup">
         <div class="card-content dark-card">
           <span class="card-title"><h4>Signup</h4><br>- Access to the best Scout's deals<br>- More personalization options<br>- Personal history and improving over time<hr> <%= link_to '<i class="fa fa-facebook"></i> Sign Up with Facebook'.html_safe, user_facebook_omniauth_authorize_path,class: 'btn-facebook btn-facebook-small' %></span>
         </div>

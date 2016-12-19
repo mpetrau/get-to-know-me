@@ -181,10 +181,12 @@ document.addEventListener("turbolinks:load", function() {
       // still missing fallback scenarios and errors
     Materialize.toast("It's gone. Next time Scout will know better", 4000, "my-toast");
     $(this).closest('.col-xs-12.col-sm-6.col-md-4').remove();
-    if ($('#last_card').length < 1) {
-      loadLimitedCard();
+    if ($('.card').length == 5) {
       $('#offers').append(next_card);
-      prepareNextCard();
+      prepareNextCard(available_card_count);
+      if ($('.card').length < 6 && $('#last_card').length == 0) {
+        loadLimitedCard();
+      };
     };
   });
 
@@ -201,7 +203,7 @@ var loaded_body;
 function limitOffersOnShow() {
   // var eligible_cards = $('.card').where(data != 'removed')
   var eligible_cards = $('.card');
-  var loaded_body = $('#offers').clone();
+  loaded_body = $('#offers').clone();
   if (eligible_cards.length > 6) {
     for (var i = 9; i > 5; i -= 1) {
       next_card = $($('.card')[(i)]).parent().detach();
@@ -212,14 +214,19 @@ function limitOffersOnShow() {
 }
 
 function loadLimitedCard() {
+  if ($("#for_signup").length == 0) {
   var limited_card_template = '<div class="col-xs-12 col-sm-6 col-md-4"><div class="card small notification" id="last_card"><div class="card-content dark-card"><span class="card-title"> No more matched deals for now. Check-in a bit later for new deals! </span></div></div></div>';
   $('#offers').append(limited_card_template);
+  };
 }
 
-var available_card_count;
-function prepareNextCard(){
-    next_card = $($('.card')[(i)]).parent().detach();
-  }
+var available_card_count = 7;
+function prepareNextCard(i) {
+  // var available_card_count = loaded_body.find('.card').length;
+  console.log(i);
+  next_card = loaded_body.children().eq(i);
+  console.log(next_card.find('.card-title'));
+  available_card_count +=1;
 }
 
 
