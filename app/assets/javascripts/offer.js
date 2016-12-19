@@ -180,26 +180,26 @@ document.addEventListener("turbolinks:load", function() {
   $(".card .offer-actions #remove").on("ajax:success", function(e, data, status, xhr){
       // still missing fallback scenarios and errors
     Materialize.toast("It's gone. Next time Scout will know better", 4000, "my-toast");
+    //remove disliked card
     $(this).closest('.col-xs-12.col-sm-6.col-md-4').remove();
     if ($('.card').length == 5) {
       $('#offers').append(next_card);
+      //prepare a card for the next cycle
       prepareNextCard(available_card_count);
+      // if no cards available, add a special card calling to checkin later
       if ($('.card').length < 6 && $('#last_card').length == 0) {
         loadLimitedCard();
       };
     };
   });
 
-
+  // 10 on page load, filter to 6 only deals
   limitOffersOnShow();
 
 });
 
 var next_card;
 var loaded_body;
-
-//next_card.appendTo('div');
-
 function limitOffersOnShow() {
   // var eligible_cards = $('.card').where(data != 'removed')
   var eligible_cards = $('.card');
